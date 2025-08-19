@@ -35,5 +35,5 @@
 ---
 
 ### Projects
-<video src="Car Data Dashboard.mp4" controls width="600"></video>
+[![Watch the video](pfp.jpg)](CarDataDashboard.mp4)
 > 

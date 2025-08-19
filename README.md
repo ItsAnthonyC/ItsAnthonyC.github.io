@@ -3,7 +3,7 @@
 ## Anthony Calvano
 
 **Philadelphia / New Jersey** 
-**[AnthonyCalvanoWork@gmail.com](mailto:AnthonyCalvanoWork@gmail.com)**
+-**[AnthonyCalvanoWork@gmail.com](mailto:AnthonyCalvanoWork@gmail.com)**
 
 ---
 

@@ -35,5 +35,5 @@
 ---
 
 ### Projects
-[![Watch the video](NCR_Rideshare_Preview.jpg)](CarDataDashboard.mp4)
+[![Watch the video](NCR_Rideshare_Preview.PNG)](CarDataDashboard.mp4)
 > 

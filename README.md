@@ -35,4 +35,5 @@
 ---
 
 ### Projects
+<video src="Car Data Dashboard.mp4" controls width="600"></video>
 > 

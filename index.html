@@ -3,39 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anthony Calvano — Data Analyst</title>
+  <title>Anthony Calvano — Data Analytics Portfolio</title>
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
   <!-- Styles -->
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Favicons (optional) -->
+  <link rel="icon" href="assets/pfp.jpg">
+  <meta name="description" content="Data Analytics portfolio for Anthony Calvano — SQL, Tableau, Python, Excel VBA, SAP.">
 </head>
 <body>
+
+  <!-- Background grid + centered card -->
   <main class="bg">
-    <section class="card">
+    <section class="card" aria-labelledby="intro-title">
       <header class="top">
         <img class="avatar" src="assets/pfp.jpg" alt="Anthony Calvano headshot">
         <p class="eyebrow">DATA ANALYST&nbsp; | &nbsp;THINKER&nbsp; | &nbsp;VISIONARY</p>
-        <h1 class="name">Anthony Calvano</h1>
+        <h1 id="intro-title" class="name">Anthony Calvano</h1>
         <p class="tagline">
           Bridging the gap between numbers and strategy by transforming data into clear, impactful decisions.
         </p>
 
-        <div class="cta">
+        <nav class="cta" aria-label="Primary actions">
           <a class="btn grad" href="#projects">
             <span>Projects</span>
-            <!-- check icon -->
-            <svg viewBox="0 0 24 24" class="icon"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+              <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </a>
 
-          <a class="btn grad" href="mailto:AnthonyCalvanoWork@gmail.com">
-            <span>Email</span>
-            <!-- mail icon -->
-            <svg viewBox="0 0 24 24" class="icon"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <a class="btn grad" href="#resume">
+            <span>Resume</span>
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+              <path d="M6 2h8l4 4v16H6z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
           </a>
-        </div>
+
+          <a class="btn dark" href="mailto:AnthonyCalvanoWork@gmail.com">
+            <span>Email</span>
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+              <path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M22 6l-10 7L2 6" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </a>
+        </nav>
       </header>
 
-      <footer class="social">
+      <!-- Social row -->
+      <footer class="social" aria-label="Social links">
         <a aria-label="X (Twitter)" href="https://x.com/" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.53 3H21l-7.59 8.69L22 21h-6.23l-4.86-6-5.57 6H3.01l8.1-8.77L2 3h6.38l4.41 5.62L17.53 3z"/></svg>
         </a>
@@ -49,34 +69,48 @@
     </section>
   </main>
 
-  <!-- Projects anchor (add cards later) -->
-  <section id="projects" class="projects">
+  <!-- Projects -->
+  <section id="projects" class="section projects">
     <h2>Featured Projects</h2>
-    <div class="project-card">
-      <img src="assets/NCR_Rideshare_Preview.PNG" alt="NCR Uber Analytics preview">
-      <div>
+
+    <article class="project-card">
+      <img src="assets/NCR_Rideshare_Preview.PNG" alt="NCR Uber Analytics preview image">
+      <div class="project-body">
         <h3>NCR Uber Analytics</h3>
         <p>Interactive dashboard analyzing rides, cancellations, and trends.</p>
-        <a class="link" href="NCRUberAnalytics.js">Open project</a>
+        <div class="project-actions">
+          <a class="btn grad" href="NCRUberAnalytics.js">Open project</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Add more <article class="project-card">…</article> blocks as you publish projects -->
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="section resume">
+    <h2>Resume</h2>
+
+    <div class="resume-card">
+      <p>You can view or download my resume below.</p>
+      <div class="resume-actions">
+        <a class="btn grad" href="assets/resume.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="btn dark" href="assets/resume.pdf" download>Download</a>
       </div>
     </div>
+
+    <object data="assets/resume.pdf" type="application/pdf" class="resume-embed">
+      <p>PDF preview not supported in your browser. Use the buttons above to open or download.</p>
+    </object>
   </section>
-  <section id="resume" class="resume">
-  <h2>Resume</h2>
 
-  <!-- If you have a PDF, put it at assets/resume.pdf -->
-  <div class="resume-card">
-    <p>You can view or download my resume below.</p>
-    <div class="resume-actions">
-      <a class="btn grad" href="assets/resume.pdf" target="_blank" rel="noopener">View PDF</a>
-      <a class="btn" style="background:#2e2e38" href="assets/resume.pdf" download>Download</a>
-    </div>
-  </div>
+  <footer class="footer">
+    <p>© <span id="year"></span> Anthony Calvano • Philadelphia / New Jersey</p>
+  </footer>
 
-  <!-- Optional embedded preview (shows in-browser if supported) -->
-  <object data="assets/resume.pdf" type="application/pdf" class="resume-embed">
-    <p>PDF preview not supported in your browser. Use the buttons above to open or download.</p>
-  </object>
-</section>
+  <script>
+    // current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

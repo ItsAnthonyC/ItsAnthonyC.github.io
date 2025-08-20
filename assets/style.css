@@ -112,6 +112,8 @@ body{
 .project-actions{display:flex; gap:10px; flex-wrap:wrap}
 
 /* resume section */
+.resume-preview{ margin-bottom:22px; }
+
 .resume-card{
   background:var(--panel-2);
   border:1px solid var(--stroke);
@@ -143,9 +145,3 @@ body{
   .card{padding:28px 22px 18px}
   .project-card img{width:100%; max-width:520px}
 }
-
-/* Optional: small spacing tune for resume preview card */
-.resume-preview { margin-bottom: 22px;}
-
-}
-

@@ -30,9 +30,9 @@
     .note-card h4 { margin-top: 1rem; }
     .info { border: 1px solid rgba(0,0,0,.1); border-radius: 8px; padding: 12px; }
 
-    /* Optional light styling for the 1-liner dropdowns */
+    /* Styling for the 1-liner dropdowns */
     details.step-brief { background: rgba(0,0,0,.02); border-radius: 8px; padding: 6px 10px; }
-    details.step-brief p { margin: .5rem 0 0; font-size: .95rem; }
+    details.step-brief p { margin: .5rem 0 .5rem; font-size: .95rem; }
   </style>
 </head>
 <body>
@@ -83,11 +83,8 @@
 
         <h4>Step 1: Data Sourcing</h4>
         <details class="step-brief">
-          
+          <summary>Step 1: Create tables and import CSVs</summary>
           <p>Build database tables and bring in raw CSV data for analysis.</p>
-        </details>
-        <details>
-          <summary>See details</summary>
           <ul>
             <li>Primary file: <code>ncr_ride_bookings.csv</code></li>
             <li>Key fields: ride distance, payment method, vehicle type, status (completed, cancelled, incomplete), customer &amp; driver ratings</li>
@@ -96,11 +93,8 @@
 
         <h4>Step 2: Data Preparation</h4>
         <details class="step-brief">
-          
+          <summary>Step 2: Data Preparation</summary>
           <p>Clean, standardize, and format data to ensure accuracy and consistency.</p>
-        </details>
-        <details>
-          <summary>See details</summary>
           <ul>
             <li>Parsed and cleaned in-app using <strong>PapaParse</strong></li>
             <li>Handled missing values and nulls</li>
@@ -110,11 +104,8 @@
 
         <h4>Step 3: Dashboard Design</h4>
         <details class="step-brief">
-          
+          <summary>Step 3: Dashboard Design</summary>
           <p>Structure the dashboard layout to highlight KPIs, trends, and insights.</p>
-        </details>
-        <details>
-          <summary>See details</summary>
           <ul>
             <li>KPIs (bookings, revenue, ratings, completion rate)</li>
             <li>Trends over time (bookings, revenue)</li>
@@ -128,12 +119,9 @@
 
         <h4>Step 4: Implementation</h4>
         <details class="step-brief">
-         
+          <summary>Step 4: Implementation</summary>
           <p>Develop and deploy the dashboard with interactive, user-ready features.</p>
-        </details>
-        <p>The dashboard was coded in React + Vite, using:</p>
-        <details>
-          <summary>See details</summary>
+          <p>The dashboard was coded in React + Vite, using:</p>
           <ul>
             <li>Recharts for interactive charts</li>
             <li>Tailwind CSS for styling and layout</li>

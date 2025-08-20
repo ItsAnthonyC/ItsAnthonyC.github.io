@@ -29,7 +29,10 @@
     .note-card details[open] > summary::after { transform: rotate(180deg); }
     .note-card h4 { margin-top: 1rem; }
     .info { border: 1px solid rgba(0,0,0,.1); border-radius: 8px; padding: 12px; }
-    .step-brief { margin: .25rem 0 .5rem; font-size: .95rem; }
+
+    /* Optional light styling for the 1-liner dropdowns */
+    details.step-brief { background: rgba(0,0,0,.02); border-radius: 8px; padding: 6px 10px; }
+    details.step-brief p { margin: .5rem 0 0; font-size: .95rem; }
   </style>
 </head>
 <body>
@@ -79,7 +82,10 @@
         <summary>Details:</summary>
 
         <h4>Step 1: Data Sourcing</h4>
-        <p class="step-brief"><strong>Step 1: Create tables and import CSVs</strong> → Build database tables and bring in raw CSV data for analysis.</p>
+        <details class="step-brief">
+          <summary>Step 1: Create tables and import CSVs</summary>
+          <p>Build database tables and bring in raw CSV data for analysis.</p>
+        </details>
         <details>
           <summary>See details</summary>
           <ul>
@@ -89,7 +95,10 @@
         </details>
 
         <h4>Step 2: Data Preparation</h4>
-        <p class="step-brief"><strong>Step 2: Data Preparation</strong> → Clean, standardize, and format data to ensure accuracy and consistency.</p>
+        <details class="step-brief">
+          <summary>Step 2: Data Preparation</summary>
+          <p>Clean, standardize, and format data to ensure accuracy and consistency.</p>
+        </details>
         <details>
           <summary>See details</summary>
           <ul>
@@ -100,7 +109,10 @@
         </details>
 
         <h4>Step 3: Dashboard Design</h4>
-        <p class="step-brief"><strong>Step 3: Dashboard Design</strong> → Structure the dashboard layout to highlight KPIs, trends, and insights.</p>
+        <details class="step-brief">
+          <summary>Step 3: Dashboard Design</summary>
+          <p>Structure the dashboard layout to highlight KPIs, trends, and insights.</p>
+        </details>
         <details>
           <summary>See details</summary>
           <ul>
@@ -115,7 +127,10 @@
         </details>
 
         <h4>Step 4: Implementation</h4>
-        <p class="step-brief"><strong>Step 4: Implementation</strong> → Develop and deploy the dashboard with interactive, user-ready features.</p>
+        <details class="step-brief">
+          <summary>Step 4: Implementation</summary>
+          <p>Develop and deploy the dashboard with interactive, user-ready features.</p>
+        </details>
         <p>The dashboard was coded in React + Vite, using:</p>
         <details>
           <summary>See details</summary>

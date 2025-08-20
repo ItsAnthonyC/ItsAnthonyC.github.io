@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NCR Uber Analytics — Anthony Calvano</title>
 
-  <!-- Fonts & Theme CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" href="assets/pfp.jpg" />
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="icon" href="/assets/site/pfp.jpg" />
   <meta name="description" content="NCR Uber Analytics — interactive dashboard demo video and overview." />
 </head>
 <body>
 
-  <!-- Hero-style header for this project -->
-  <main class="bg" style="min-height:auto; padding-top:32px;">
+  <main class="bg bg-page">
     <section class="card" aria-labelledby="page-title">
       <header class="top">
         <p class="eyebrow">PROJECT</p>
@@ -22,13 +20,12 @@
         <p class="tagline">Interactive dashboard analyzing rides, cancellations, and trends.</p>
 
         <nav class="cta" aria-label="Page actions">
-          <a class="btn grad" href="index.html">← Home</a>
+          <a class="btn grad" href="/">← Home</a>
         </nav>
       </header>
     </section>
   </main>
 
-  <!-- Video bubble -->
   <section class="section">
     <article class="project-card">
       <div class="video-wrap">
@@ -46,56 +43,15 @@
     </article>
   </section>
 
-  <!-- About section -->
   <section class="section">
     <h2>About this project</h2>
-   <div class="note-card">
-  <p>
-    This dashboard was built as a full end-to-end data analytics project to practice
-    turning raw ride-booking data into actionable insights.
-  </p>
-
-  <h4>Step 1: Data Sourcing</h4>
-  <ul>
-    <li>Primary file: <code>ncr_ride_bookings.csv</code></li>
-    <li>Key fields: ride distance, payment method, vehicle type, status (completed, cancelled, incomplete), customer &amp; driver ratings</li>
-  </ul>
-
-  <h4>Step 2: Data Preparation</h4>
-  <ul>
-    <li>Parsed and cleaned in-app using <strong>PapaParse</strong></li>
-    <li>Handled missing values and nulls</li>
-    <li>Standardized labels/data types to prevent breakage during analysis</li>
-  </ul>
-
-  <h4>Step 3: Dashboard Design</h4>
-  <ul>
-    <li>KPIs (bookings, revenue, ratings, completion rate)</li>
-    <li>Trends over time (bookings, revenue)</li>
-    <li>Vehicle type &amp; payment method distributions</li>
-    <li>Cancellation patterns and reasons</li>
-    <li>Ratings breakdowns</li>
-    <li>Top routes by frequency and value</li>
-    <li>Auto-generated insights and summaries</li>
-  </ul>
-
-  <h4>Step 4: Implementation</h4>
-  <p>The dashboard was coded in React + Vite, using:</p>
-  <ul>
-    <li>Recharts for interactive charts</li>
-    <li>Tailwind CSS for styling and layout</li>
-    <li>lucide-react for icons</li>
-    <li>React state hooks for filters (vehicle type, payment method, date ranges)</li>
-  </ul>
-</div>
+    <div class="note-card">To be completed later.</div>
   </section>
 
   <footer class="footer">
     <p>© <span id="year"></span> Anthony Calvano</p>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

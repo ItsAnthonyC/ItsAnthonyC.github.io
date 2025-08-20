@@ -14,22 +14,23 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 html{scroll-behavior:smooth}
+
+/* Dotted grid across the WHOLE page */
 body{
   margin:0;
   color:var(--text);
-  background:var(--bg);
+  background:
+    radial-gradient(circle at 1px 1px, #2a2a34 1px, transparent 1px) 0 0/22px 22px,
+    linear-gradient(var(--bg), var(--bg));
   font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
   line-height:1.6;
 }
 
-/* dotted grid background */
+/* Center the hero card; no background here */
 .bg{
   min-height:100svh;
   display:grid;
   place-items:center;
-  background:
-    radial-gradient(circle at 1px 1px, #2a2a34 1px, transparent 1px) 0 0/22px 22px,
-    linear-gradient(var(--bg),var(--bg));
 }
 
 /* hero card */

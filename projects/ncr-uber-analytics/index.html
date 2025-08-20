@@ -10,7 +10,7 @@
   <link rel="icon" href="/assets/site/pfp.jpg" />
   <meta name="description" content="NCR Uber Analytics — interactive dashboard demo video and overview." />
 
-  <!-- Force left alignment + details styling -->
+  <!-- Left align + details styling -->
   <style>
     .note-card, .note-card * { text-align: left !important; }
     .note-card details { margin: 0.5rem 0 1rem; }
@@ -29,8 +29,7 @@
     .note-card details[open] > summary::after { transform: rotate(180deg); }
     .note-card h4 { margin-top: 1rem; }
     .info { border: 1px solid rgba(0,0,0,.1); border-radius: 8px; padding: 12px; }
-    .step-summaries { background: rgba(0,0,0,.02); border-radius: 8px; padding: 8px 12px; }
-    .step-summaries ul { margin-top: .5rem; }
+    .step-brief { margin: .25rem 0 .5rem; font-size: .95rem; }
   </style>
 </head>
 <body>
@@ -75,22 +74,12 @@
         turning raw ride-booking data into actionable insights.
       </p>
 
-      <!-- Top-level dropdown for ALL content after the intro -->
+      <!-- Top-level dropdown for all step content -->
       <details class="info">
         <summary>Details:</summary>
 
-        <!-- One-liner summaries dropdown (opened by default) -->
-        <details class="step-summaries" open>
-          <summary>Step summaries (1-liners)</summary>
-          <ul>
-            <li><strong>Step 1: Create tables and import CSVs</strong> → Build database tables and bring in raw CSV data for analysis.</li>
-            <li><strong>Step 2: Data Preparation</strong> → Clean, standardize, and format data to ensure accuracy and consistency.</li>
-            <li><strong>Step 3: Dashboard Design</strong> → Structure the dashboard layout to highlight KPIs, trends, and insights.</li>
-            <li><strong>Step 4: Implementation</strong> → Develop and deploy the dashboard with interactive, user-ready features.</li>
-          </ul>
-        </details>
-
         <h4>Step 1: Data Sourcing</h4>
+        <p class="step-brief"><strong>Step 1: Create tables and import CSVs</strong> → Build database tables and bring in raw CSV data for analysis.</p>
         <details>
           <summary>See details</summary>
           <ul>
@@ -100,6 +89,7 @@
         </details>
 
         <h4>Step 2: Data Preparation</h4>
+        <p class="step-brief"><strong>Step 2: Data Preparation</strong> → Clean, standardize, and format data to ensure accuracy and consistency.</p>
         <details>
           <summary>See details</summary>
           <ul>
@@ -110,6 +100,7 @@
         </details>
 
         <h4>Step 3: Dashboard Design</h4>
+        <p class="step-brief"><strong>Step 3: Dashboard Design</strong> → Structure the dashboard layout to highlight KPIs, trends, and insights.</p>
         <details>
           <summary>See details</summary>
           <ul>
@@ -124,6 +115,7 @@
         </details>
 
         <h4>Step 4: Implementation</h4>
+        <p class="step-brief"><strong>Step 4: Implementation</strong> → Develop and deploy the dashboard with interactive, user-ready features.</p>
         <p>The dashboard was coded in React + Vite, using:</p>
         <details>
           <summary>See details</summary>

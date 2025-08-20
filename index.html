@@ -11,13 +11,13 @@
   <!-- Styles -->
   <link rel="stylesheet" href="assets/style.css" />
 
-  <!-- Favicons (optional) -->
+  <!-- Meta / Favicon -->
   <link rel="icon" href="assets/pfp.jpg">
   <meta name="description" content="Data Analytics portfolio for Anthony Calvano — SQL, Tableau, Python, Excel VBA, SAP.">
 </head>
 <body>
 
-  <!-- Background grid + centered card -->
+  <!-- Background grid + centered hero card -->
   <main class="bg">
     <section class="card" aria-labelledby="intro-title">
       <header class="top">
@@ -28,6 +28,7 @@
           Bridging the gap between numbers and strategy by transforming data into clear, impactful decisions.
         </p>
 
+        <!-- Primary actions -->
         <nav class="cta" aria-label="Primary actions">
           <a class="btn grad" href="#projects">
             <span>Projects</span>
@@ -44,7 +45,8 @@
             </svg>
           </a>
 
-          <a class="btn dark" href="mailto:AnthonyCalvanoWork@gmail.com">
+          <!-- Email now matches the other gradient bubbles -->
+          <a class="btn grad" href="mailto:AnthonyCalvanoWork@gmail.com">
             <span>Email</span>
             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
               <path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -83,14 +85,26 @@
         </div>
       </div>
     </article>
-
-    <!-- Add more <article class="project-card">…</article> blocks as you publish projects -->
   </section>
 
   <!-- Resume -->
   <section id="resume" class="section resume">
     <h2>Resume</h2>
 
+    <!-- Preview card styled like project card -->
+    <article class="project-card resume-preview">
+      <img src="assets/resumepreview.png" alt="Resume preview image">
+      <div class="project-body">
+        <h3>Resume (PDF)</h3>
+        <p>Quick preview of my resume. Open the full PDF or download below.</p>
+        <div class="project-actions">
+          <a class="btn grad" href="assets/resume.pdf" target="_blank" rel="noopener">Open PDF</a>
+          <a class="btn dark" href="assets/resume.pdf" download>Download</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Keep the full in-page PDF preview -->
     <div class="resume-card">
       <p>You can view or download my resume below.</p>
       <div class="resume-actions">

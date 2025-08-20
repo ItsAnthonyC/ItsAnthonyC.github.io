@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Step-by-Step Analysis — Anthony Calvano</title>
+
+  <!-- Fonts & Theme CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="icon" href="/assets/site/pfp.jpg" />
+  <meta name="description" content="Step-by-step analysis PDF preview and details." />
+</head>
+<body>
+
+  <!-- Header -->
+  <main class="bg bg-page">
+    <section class="card" aria-labelledby="page-title">
+      <header class="top">
+        <p class="eyebrow">PROJECT</p>
+        <h1 id="page-title" class="name" style="margin-bottom:6px;">Step-by-Step Analysis</h1>
+        <p class="tagline">Selected pages from the step-by-step walkthrough document.</p>
+
+        <nav class="cta" aria-label="Page actions">
+          <a class="btn grad" href="/">← Home</a>
+          <a class="btn grad" href="/projects/step-by-step/assets/step_by_step_.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </nav>
+      </header>
+    </section>
+  </main>
+
+  <!-- PDF previews (page 1 & page 2) -->
+  <section class="section">
+    <article class="project-card">
+      <div class="project-body" style="width:100%">
+        <h3>PDF Preview — Page 1</h3>
+        <object
+          data="/projects/step-by-step/assets/step_by_step_.pdf#page=1&zoom=page-width"
+          type="application/pdf"
+          class="pdf-embed">
+          <p>PDF preview not supported. <a class="btn grad" href="/projects/step-by-step/assets/step_by_step_.pdf" target="_blank" rel="noopener">Open PDF</a></p>
+        </object>
+      </div>
+    </article>
+
+    <article class="project-card" style="margin-top:18px;">
+      <div class="project-body" style="width:100%">
+        <h3>PDF Preview — Page 2</h3>
+        <object
+          data="/projects/step-by-step/assets/step_by_step_.pdf#page=2&zoom=page-width"
+          type="application/pdf"
+          class="pdf-embed">
+          <p>PDF preview not supported. <a class="btn grad" href="/projects/step-by-step/assets/step_by_step_.pdf" target="_blank" rel="noopener">Open PDF</a></p>
+        </object>
+      </div>
+    </article>
+  </section>
+
+  <!-- About / Next project teaser -->
+  <section class="section">
+    <h2>About this project</h2>
+    <div class="note-card">Coming soon.</div>
+  </section>
+
+  <section class="section">
+    <h2>Another Project</h2>
+    <article class="project-card">
+      <div class="project-body">
+        <h3>Coming soon</h3>
+        <p>Stay tuned — a new project will be added here shortly.</p>
+      </div>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Anthony Calvano</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

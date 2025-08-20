@@ -45,7 +45,45 @@
 
   <section class="section">
     <h2>About this project</h2>
-    <div class="note-card">To be completed later.</div>
+  <div class="note-card">
+  <p>
+    This dashboard was built as a full end-to-end data analytics project to practice
+    turning raw ride-booking data into actionable insights.
+  </p>
+
+  <h4>Step 1: Data Sourcing</h4>
+  <ul>
+    <li>Primary file: <code>ncr_ride_bookings.csv</code></li>
+    <li>Key fields: ride distance, payment method, vehicle type, status (completed, cancelled, incomplete), customer &amp; driver ratings</li>
+  </ul>
+
+  <h4>Step 2: Data Preparation</h4>
+  <ul>
+    <li>Parsed and cleaned in-app using <strong>PapaParse</strong></li>
+    <li>Handled missing values and nulls</li>
+    <li>Standardized labels/data types to prevent breakage during analysis</li>
+  </ul>
+
+  <h4>Step 3: Dashboard Design</h4>
+  <ul>
+    <li>KPIs (bookings, revenue, ratings, completion rate)</li>
+    <li>Trends over time (bookings, revenue)</li>
+    <li>Vehicle type &amp; payment method distributions</li>
+    <li>Cancellation patterns and reasons</li>
+    <li>Ratings breakdowns</li>
+    <li>Top routes by frequency and value</li>
+    <li>Auto-generated insights and summaries</li>
+  </ul>
+
+  <h4>Step 4: Implementation</h4>
+  <p>The dashboard was coded in React + Vite, using:</p>
+  <ul>
+    <li>Recharts for interactive charts</li>
+    <li>Tailwind CSS for styling and layout</li>
+    <li>lucide-react for icons</li>
+    <li>React state hooks for filters (vehicle type, payment method, date ranges)</li>
+  </ul>
+</div>
   </section>
 
   <footer class="footer">

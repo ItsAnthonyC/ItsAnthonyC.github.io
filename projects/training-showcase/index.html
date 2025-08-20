@@ -30,33 +30,89 @@
     </section>
   </main>
 
-  <!-- PDF previews (page 1 & page 2) -->
-  <section class="section">
-    <article class="project-card">
+<!-- TRAINING: Additional Software Cards -->
+<section class="section" id="training-more">
+  <div class="grid">
+
+    <!-- Excel -->
+    <article class="project-card" id="excel">
       <div class="project-body" style="width:100%">
-        <h3>PDF Preview — Page 1</h3>
-        <object
-          data="/projects/training-showcase/assets/step_by_step_.pdf#page=1&zoom=page-width"
-          type="application/pdf"
-          class="pdf-embed">
-          <p>PDF preview not supported. <a class="btn grad" href="/projects/training-showcase/assets/step_by_step_.pdf" target="_blank" rel="noopener">Open PDF</a></p>
-        </object>
+        <h3>Excel (Power Query + PivotTables + Charts)</h3>
+        <p class="goal"><strong>Goal:</strong> Quick KPIs, light modeling, printable executive readout.</p>
+        <ol>
+          <li>Open <code>Portfolio_Starter.xlsx</code> or import CSVs via Power Query.</li>
+          <li>Clean region labels, handle nulls, and add <em>Net Revenue</em> field.</li>
+          <li>Create a Date table (Year, Month, Year-Month) for consistent time analysis.</li>
+          <li>Build PivotTables: monthly trends, YoY helper, category/subcategory revenue, channel conversion & ROI.</li>
+          <li>Add charts: revenue trend lines, bar charts for categories and ROI, KPI cards.</li>
+          <li>Add slicers for Year, Region, Channel, Category and a “Data Notes” sheet documenting cleaning steps.</li>
+        </ol>
       </div>
     </article>
 
-    <article class="project-card" style="margin-top:18px;">
+    <!-- Tableau -->
+    <article class="project-card" id="tableau">
       <div class="project-body" style="width:100%">
-        <h3>PDF Preview — Page 2</h3>
-        <object
-          data="/projects/training-showcase/assets/step_by_step_.pdf#page=2&zoom=page-width"
-          type="application/pdf"
-          class="pdf-embed">
-          <p>PDF preview not supported. <a class="btn grad" href="/projects/training-showcase/assets/step_by_step_.pdf" target="_blank" rel="noopener">Open PDF</a></p>
-        </object>
+        <h3>Tableau</h3>
+        <p class="goal"><strong>Goal:</strong> Interactive executive dashboard with KPIs, trends, and drilldowns.</p>
+        <ol>
+          <li>Connect to CSVs or <code>Portfolio_Starter.xlsx</code>; relate <code>order_items</code>→<code>products</code>, and use <code>orders</code>, <code>web_sessions</code>, <code>channel_spend</code>.</li>
+          <li>Create calculated fields: <em>Net Revenue</em>, <em>Month</em>, <em>YoY %</em>, <em>Conversion %</em>, <em>ROI</em>.</li>
+          <li>Sheets to build: KPI tiles; Monthly Net Revenue + YoY; Channels (Conversion %, ROI); Products (Top Categories); Regions (map or bars).</li>
+          <li>Assemble a dashboard; add filters (Year, Region, Channel, Category) and descriptive tooltips.</li>
+          <li>Publish to Tableau Public and link from your portfolio.</li>
+        </ol>
       </div>
     </article>
-  </section>
 
+    <!-- Power BI -->
+    <article class="project-card" id="powerbi">
+      <div class="project-body" style="width:100%">
+        <h3>Power BI</h3>
+        <p class="goal"><strong>Goal:</strong> Same visuals as Tableau with a DAX semantic model.</p>
+        <ol>
+          <li>Load CSVs; in Model view create relationships and a Date table:
+            <br><code>DateTable = CALENDAR(DATE(2023,1,1), DATE(2025,6,30))</code></li>
+          <li>Add columns: Year, Month, YearMonth; write measures:
+            <br><em>Net Revenue</em>, <em>Orders</em>, <em>AOV</em>, <em>Return %</em>, <em>Sessions</em>, <em>Transactions</em>, <em>Conversion %</em>, <em>Revenue LY</em>, <em>YoY %</em>, <em>Spend</em>, <em>ROI</em>.</li>
+          <li>Create visuals: KPI cards; Revenue + YoY line; Conversion % by channel; ROI by channel; Revenue by category; Region momentum (recent vs prior 6m).</li>
+          <li>Add slicers for Year, Region, Channel, Category; format and publish/export.</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- GitHub / Portfolio -->
+    <article class="project-card" id="github">
+      <div class="project-body" style="width:100%">
+        <h3>GitHub / Portfolio Site</h3>
+        <p class="goal"><strong>Goal:</strong> Public, reproducible project with clear documentation.</p>
+        <ol>
+          <li>Repo structure:
+            <br><code>/data</code> (CSVs), <code>/analysis</code> (SQL), <code>/workbooks</code> (Excel), <code>/docs</code> (summary/insights).</li>
+          <li>README: READY overview, data schema diagram, reproduce steps, screenshots/GIFs of dashboards, key insights & recommendations.</li>
+          <li>Commit, push, and (if using GitHub Pages) deploy the project page; link assets (dashboards, PDFs, downloads).</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- Word / Slide Deck -->
+    <article class="project-card" id="word">
+      <div class="project-body" style="width:100%">
+        <h3>Word / Slide Deck</h3>
+        <p class="goal"><strong>Goal:</strong> Concise narrative for executives (report + presentation).</p>
+        <ol>
+          <li>Word report: Executive summary; KPIs; trends; channel/product/region insights; recommendations; assumptions/limitations.</li>
+          <li>Slide deck (6 slides): Title + KPIs; Trend & Seasonality; Channel Performance; Product Performance; Regional Growth; 90-Day Action Plan.</li>
+          <li>Export to PDF and link from the project page.</li>
+        </ol>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+   
   <!-- About / Next project teaser -->
   <section class="section">
     <h2>About this project</h2>

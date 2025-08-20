@@ -101,3 +101,27 @@ body{
 @media (max-width:720px){
   .card{padding:28px 22px 18px}
 }
+/* Resume section */
+.resume{
+  max-width:880px; margin:56px auto; padding:0 24px;
+}
+.resume h2{ text-align:center; margin:0 0 18px }
+.resume-card{
+  background:var(--panel-2);
+  border:1px solid var(--stroke);
+  border-radius:16px;
+  padding:18px;
+  margin:0 auto 18px;
+  max-width:720px;
+  text-align:center;
+}
+.resume-actions{
+  display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:10px;
+}
+.resume-embed{
+  width:100%;
+  height:800px;            /* adjust if you want shorter/taller */
+  border:1px solid var(--stroke);
+  border-radius:16px;
+}
+

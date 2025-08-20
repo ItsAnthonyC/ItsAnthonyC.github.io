@@ -149,7 +149,7 @@ body{
 /* Video embed bubble (matches your card style) */
 .video-wrap{
   width:100%;
-  max-width:560px;          /* keep it nicely sized on desktop */
+  max-width:560px;
   aspect-ratio:16/9;
   border-radius:12px;
   overflow:hidden;
@@ -163,7 +163,7 @@ body{
   display:block;
 }
 
-/* Simple note card for About section */
+/* Simple note card used under About */
 .note-card{
   background:var(--panel-2);
   border:1px solid var(--stroke);

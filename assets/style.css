@@ -5,18 +5,21 @@
   --text:#eaeaf0;
   --muted:#a1a1b0;
   --stroke:#2c2c36;
-  --grad-a:#ff944d;  /* orange */
-  --grad-b:#8a5cff;  /* purple */
+  --grad-a:#ff944d;    /* orange */
+  --grad-b:#8a5cff;    /* purple */
+  --accent:#8a5cff;
   --radius:24px;
 }
 
 *{box-sizing:border-box}
 html,body{height:100%}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   color:var(--text);
   background:var(--bg);
   font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;
 }
 
 /* dotted grid background */
@@ -29,7 +32,7 @@ body{
     linear-gradient(var(--bg),var(--bg));
 }
 
-/* card */
+/* hero card */
 .card{
   width:min(880px,92vw);
   background:linear-gradient(180deg,var(--panel) 0%, var(--panel) 85%, var(--panel-2) 85%);
@@ -38,8 +41,6 @@ body{
   padding:40px 48px 22px;
   box-shadow:0 15px 60px rgba(0,0,0,.45);
 }
-
-/* header area */
 .top{max-width:650px}
 .avatar{
   width:72px;height:72px;border-radius:50%;
@@ -47,8 +48,7 @@ body{
   object-fit:cover;
 }
 .eyebrow{
-  letter-spacing:.22em;
-  color:#d7835c;
+  letter-spacing:.22em; color:#d7835c;
   font-size:.8rem; text-transform:uppercase; margin:8px 0 12px;
 }
 .name{
@@ -63,12 +63,17 @@ body{
 .btn{
   display:inline-flex; align-items:center; gap:10px;
   padding:12px 20px; border-radius:9999px; font-weight:600;
-  text-decoration:none; color:white; position:relative;
+  text-decoration:none; color:white;
+  border:1px solid transparent;
 }
 .btn.grad{
   background:linear-gradient(90deg,var(--grad-a),var(--grad-b));
   box-shadow:0 10px 24px rgba(138,92,255,.25);
 }
+.btn.dark{
+  background:#2e2e38; color:#fff; border-color:#373747;
+}
+.btn:hover{transform:translateY(-1px)}
 .icon{width:18px;height:18px}
 
 /* social row */
@@ -83,29 +88,29 @@ body{
 }
 .social svg{width:22px;height:22px}
 
-/* projects */
-.projects{
+/* generic section */
+.section{
   max-width:880px; margin:56px auto; padding:0 24px;
+  scroll-margin-top: 80px;   /* anchor offset */
 }
-.projects h2{text-align:center; margin:0 0 18px}
-.project-card{
-  display:flex; gap:16px; align-items:center;
-  background:var(--panel-2); border:1px solid var(--stroke);
-  border-radius:16px; padding:16px; flex-wrap:wrap;
+.section h2{
+  text-align:center; margin:0 0 18px;
 }
-.project-card img{width:220px; border-radius:12px; border:1px solid var(--stroke)}
-.link{color:#8a5cff; font-weight:600; text-decoration:none}
-.link:hover{text-decoration:underline}
 
-/* responsive */
-@media (max-width:720px){
-  .card{padding:28px 22px 18px}
+/* project card */
+.project-card{
+  display:flex; gap:16px; align-items:center; flex-wrap:wrap;
+  background:var(--panel-2); border:1px solid var(--stroke);
+  border-radius:16px; padding:16px;
 }
-/* Resume section */
-.resume{
-  max-width:880px; margin:56px auto; padding:0 24px;
+.project-card img{
+  width:220px; border-radius:12px; border:1px solid var(--stroke);
 }
-.resume h2{ text-align:center; margin:0 0 18px }
+.project-body h3{margin:0 0 6px}
+.project-body p{margin:0 0 12px; color:var(--muted)}
+.project-actions{display:flex; gap:10px; flex-wrap:wrap}
+
+/* resume section */
 .resume-card{
   background:var(--panel-2);
   border:1px solid var(--stroke);
@@ -114,14 +119,26 @@ body{
   margin:0 auto 18px;
   max-width:720px;
   text-align:center;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
 }
 .resume-actions{
   display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:10px;
 }
 .resume-embed{
   width:100%;
-  height:800px;            /* adjust if you want shorter/taller */
+  height:900px;              /* adjust height to taste */
   border:1px solid var(--stroke);
   border-radius:16px;
 }
 
+/* footer */
+.footer{
+  text-align:center; padding:26px 16px; color:#b9b9c6;
+  border-top:1px solid var(--stroke); margin-top:60px;
+}
+
+/* responsiveness */
+@media (max-width:720px){
+  .card{padding:28px 22px 18px}
+  .project-card img{width:100%; max-width:520px}
+}

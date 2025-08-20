@@ -142,3 +142,9 @@ body{
   .card{padding:28px 22px 18px}
   .project-card img{width:100%; max-width:520px}
 }
+
+/* Optional: small spacing tune for resume preview card */
+.resume-preview { margin-bottom: 22px;}
+
+}
+

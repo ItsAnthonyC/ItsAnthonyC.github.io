@@ -33,6 +33,19 @@ body{
   place-items:center;
 }
 
+/* hero centering */
+.bg{
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+}
+
+/* page variant: use on subpages */
+.bg-page{
+  min-height:auto;
+  padding-top:32px;
+}
+
 /* hero card */
 .card{
   width:min(880px,92vw);

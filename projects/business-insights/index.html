@@ -30,87 +30,139 @@
     </section>
   </main>
 
- <section class="section">
-  <h2 class="section-title">Business Insights Project</h2>
+<section class="section" id="business-insights-cards">
+  <h2 class="section-title">Business Insights & Recommendations</h2>
   <div class="project-grid">
 
-    <!-- Revenue Trends -->
-    <div class="project-card">
-      <h3>Revenue Trends</h3>
-      <p><strong>Goal:</strong> Understand seasonality and revenue cycles.</p>
-      <ol>
-        <li>Identify monthly revenue patterns across the 2.5-year dataset.</li>
-        <li>Highlight holiday-driven spikes in November–December.</li>
-        <li>Measure January drop-off and recovery trends.</li>
-        <li>Recommend Q4 inventory ramp-ups and marketing spend.</li>
-        <li>Design retention-focused campaigns for post-holiday softness.</li>
-      </ol>
-    </div>
+    <!-- 1. Revenue Trends -->
+    <article class="project-card">
+      <h3>1. Revenue Trends</h3>
+      <p>Revenue spikes strongly in November–December (holiday sales), then dips in January. This<br>
+      suggests the business is highly seasonal.</p>
+      <p>Direction: Highlight this seasonality in dashboards. Recommend inventory ramp-ups &<br>
+      campaign spending increases in Q4, and possibly retention-focused campaigns in January to<br>
+      soften the post-holiday dip.</p>
+    </article>
 
-    <!-- Product Performance -->
-    <div class="project-card">
-      <h3>Product Performance</h3>
-      <p><strong>Goal:</strong> Evaluate category/subcategory contribution to revenue.</p>
-      <ol>
-        <li>Rank categories by total revenue (Electronics, Apparel lead).</li>
-        <li>Drill down into subcategories (Mobile Accessories, Women’s Apparel).</li>
-        <li>Spot underperformers like Toys and Beauty vs spend levels.</li>
-        <li>Recommend reallocating marketing spend toward high ROI categories.</li>
-        <li>Suggest bundling weak categories with stronger ones during campaigns.</li>
-      </ol>
-    </div>
+    <!-- 2. Product Performance -->
+    <article class="project-card">
+      <h3>2. Product Performance</h3>
+      <p>Top Categories: Electronics and Apparel dominate revenue. Subcategories like Mobile<br>
+      Accessories and Women’s Apparel show consistent strength.</p>
+      <p>Underperformers: Toys and some Beauty products under-index compared to marketing<br>
+      spend.</p>
+      <p>Direction:</p>
+      <ul>
+        <li>Recommend reallocating spend toward high-ROI categories.</li>
+        <li>Suggest bundling weaker categories with popular ones (e.g., Toys as holiday add-ons with<br>
+        Electronics).</li>
+      </ul>
+    </article>
 
-    <!-- Customer Segments -->
-    <div class="project-card">
-      <h3>Customer Segments</h3>
-      <p><strong>Goal:</strong> Analyze account types and regional performance.</p>
-      <ol>
-        <li>Segment customers by Premium vs Non-Premium membership.</li>
-        <li>Compare average order value (Premium yields higher AOV).</li>
-        <li>Review regional momentum (South & Midwest growing, West lagging).</li>
-        <li>Recommend upsell campaigns for Premium memberships.</li>
-        <li>Target West region with localized promotions.</li>
-      </ol>
-    </div>
+    <!-- 3. Customer Segments -->
+    <article class="project-card">
+      <h3>3. Customer Segments</h3>
+      <p>Premium accounts often enjoy free shipping and yield higher average order values.</p>
+      <p>South and Midwest regions show recent revenue growth momentum, while West lags<br>
+      behind.</p>
+      <p>Direction:</p>
+      <ul>
+        <li>Suggest running regional promotions in the West to boost demand.</li>
+        <li>Position Premium membership upsell campaigns — they correlate with higher basket<br>
+        sizes and retention.</li>
+      </ul>
+    </article>
 
-    <!-- Marketing Channels -->
-    <div class="project-card">
-      <h3>Marketing Channels</h3>
-      <p><strong>Goal:</strong> Compare conversion & ROI across acquisition channels.</p>
-      <ol>
-        <li>Measure conversion rates by channel (Email highest, Paid Search volume).</li>
-        <li>Compute ROI on spend — Email/Referral outperform; Display weak.</li>
-        <li>Recommend shifting budget from Display → Email & Referral.</li>
-        <li>Enhance Email segmentation for loyalty, lapsed, and prospect groups.</li>
-        <li>Refine Paid Search keyword bidding to improve ROI efficiency.</li>
-      </ol>
-    </div>
+    <!-- 4. Marketing Channels -->
+    <article class="project-card">
+      <h3>4. Marketing Channels</h3>
+      <p>Conversion: Email has the highest conversion rate but only accounts for ~10–15% of total<br>
+      sessions. Paid Search brings volume but weaker conversion.</p>
+      <p>ROI: ROI analysis shows Email and Referral outperform in return on spend, while Display<br>
+      Ads are often negative ROI.</p>
+      <p>Direction:</p>
+      <ul>
+        <li>Recommend shifting budget from Display → Email & Referral programs.</li>
+        <li>Strengthen Email campaigns with segmentation (loyalty, lapsed, prospects).</li>
+        <li>Test scaling Paid Search with stricter keyword bidding to improve ROI.</li>
+      </ul>
+    </article>
 
-    <!-- Returns & Customer Experience -->
-    <div class="project-card">
-      <h3>Returns & Customer Experience</h3>
-      <p><strong>Goal:</strong> Reduce return rate and improve CX.</p>
-      <ol>
-        <li>Analyze ~6% return rate across categories.</li>
-        <li>Identify high-return categories (Apparel, Electronics accessories).</li>
-        <li>Recommend size/fit recommendation tools for Apparel.</li>
-        <li>Improve product descriptions/photos for Electronics.</li>
-        <li>Implement structured return-reason tracking for future analysis.</li>
-      </ol>
-    </div>
+    <!-- 5. Returns & Customer Experience -->
+    <article class="project-card">
+      <h3>5. Returns & Customer Experience</h3>
+      <p>Return rate ~6%, slightly high for e-commerce. Categories with the highest returns include<br>
+      Apparel and certain Electronics.</p>
+      <p>Direction:</p>
+      <ul>
+        <li>Recommend a fit/size recommendation tool for Apparel to reduce returns.</li>
+        <li>Improve product descriptions/photos for Electronics accessories.</li>
+        <li>Build a return-reason tracking field in the dataset for deeper analysis later.</li>
+      </ul>
+    </article>
 
-    <!-- Growth Opportunities -->
-    <div class="project-card">
-      <h3>Growth Opportunities</h3>
-      <p><strong>Goal:</strong> Identify future levers for expansion.</p>
-      <ol>
-        <li>Spot high-growth regions (South strongest 6-month momentum).</li>
-        <li>Recommend investment in regional logistics & warehouses.</li>
-        <li>Leverage customer retention — 35% of sessions tied to known customers.</li>
-        <li>Encourage account sign-ups with registration discounts.</li>
-        <li>Develop loyalty program expansions for repeat buyers.</li>
-      </ol>
-    </div>
+    <!-- 6. Growth Opportunities -->
+    <article class="project-card">
+      <h3>6. Growth Opportunities</h3>
+      <p>Regional: The South shows strong recent 6-month growth; invest in marketing + logistics<br>
+      there.</p>
+      <p>Customer Retention: With 35% of sessions tied to known customers, there’s room to<br>
+      expand account sign-ups and loyalty programs.</p>
+      <p>Direction:</p>
+      <ul>
+        <li>Recommend a regional warehouse expansion or faster shipping option in the South.</li>
+        <li>Incentivize account creation (discount on first purchase with registration).</li>
+      </ul>
+    </article>
+
+    <!-- Examples of Executive Summary -->
+    <article class="project-card">
+      <h3>Examples of Executive Summary</h3>
+      <pre style="white-space:pre-wrap; font-family:inherit; line-height:1.5; margin:0;">
+Project Title: NCR Ride Analytics 
+Period: January 1, 2023 – June 30, 2025 
+
+Key Metrics 
+
+ Total Net Revenue: $14,413,415.15 
+ Total Orders: 50,000 
+ Average Net Revenue per Order: $288.27 
+ Return Rate: 6.03% 
+ Overall Session Conversion: 3.53% 
+
+Top Categories by Revenue (Top 5) 
+
+1. Electronics — $5,690,276.52 
+2. Sports — $2,918,356.25 
+3. Home — $2,177,977.55 
+4. Apparel — $1,845,384.32 
+5. Beauty — $1,488,629.24 
+
+Channel Conversion 
+
+Channel Sessions Transactions Conversion Rate 
+
+Display 17,988 680 3.78% 
+Referral 21,617 788 3.65% 
+Direct 21,644 784 3.62% 
+Social 21,511 763 3.55% 
+Email 25,281 881 3.48% 
+Paid Search 32,325 1,108 3.43% 
+Organic Search 39,634 1,347 3.40% 
+
+Channel ROI (Proxy) 
+
+Channel Spend Revenue ROI 
+
+Direct $137.19 $1,704,624.22 12,424.28 
+Organic Search $2,021.14 $3,165,866.59 1,565.38 
+Referral $2,371.65 $1,745,701.08 735.07 
+Email $90,868.16 $1,981,729.16 20.81 
+Display $204,765.13 $1,443,098.46 6.05 
+Social $287,831.65 $1,754,883.51 5.10 
+Paid Search $679,960.41 $2,617,512.13 2.85
+      </pre>
+    </article>
 
   </div>
 </section>

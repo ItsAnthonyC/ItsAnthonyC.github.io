@@ -10,7 +10,7 @@
   <link rel="icon" href="/assets/site/pfp.jpg" />
   <meta name="description" content="NCR Uber Analytics — interactive dashboard demo video and overview." />
 
-  <!-- Override any centered text so cards are left-aligned -->
+  <!-- Force left alignment + details styling -->
   <style>
     .note-card, .note-card * { text-align: left !important; }
     .note-card details { margin: 0.5rem 0 1rem; }
@@ -26,9 +26,9 @@
       display: inline-block;
       transition: transform .2s ease;
     }
-    .note-card details[open] summary::after { transform: rotate(180deg); }
-    .note-card ul { margin-top: .5rem; }
+    .note-card details[open] > summary::after { transform: rotate(180deg); }
     .note-card h4 { margin-top: 1rem; }
+    .info { border: 1px solid rgba(0,0,0,.1); border-radius: 8px; padding: 12px; }
   </style>
 </head>
 <body>
@@ -73,49 +73,57 @@
         turning raw ride-booking data into actionable insights.
       </p>
 
-      <h4>Step 1: Data Sourcing - Gather raw ride-booking data from ncr_ride_bookings.csv with all key fields.</h4>
-      <details>
-        <summary>See details</summary>
-        <ul>
-          <li>Primary file: <code>ncr_ride_bookings.csv</code></li>
-          <li>Key fields: ride distance, payment method, vehicle type, status (completed, cancelled, incomplete), customer &amp; driver ratings</li>
-        </ul>
-      </details>
+      <!-- Top-level dropdown for ALL content after the intro -->
+      <details class="info">
+        <summary>Details:</summary>
 
-      <h4>Step 2: Data Preparation - Parse, clean, and standardize data to handle nulls and ensure consistency.</h4>
-      <details>
-        <summary>See details</summary>
-        <ul>
-          <li>Parsed and cleaned in-app using <strong>PapaParse</strong></li>
-          <li>Handled missing values and nulls</li>
-          <li>Standardized labels/data types to prevent breakage during analysis</li>
-        </ul>
-      </details>
+        <h4>Step 1: Data Sourcing</h4>
+        <details>
+          <summary>See details</summary>
+          <ul>
+            <li>Primary file: <code>ncr_ride_bookings.csv</code></li>
+            <li>Key fields: ride distance, payment method, vehicle type, status (completed, cancelled, incomplete), customer &amp; driver ratings</li>
+          </ul>
+        </details>
 
-      <h4>Step 3: Dashboard Design - Define KPIs, trends, and visual breakdowns to highlight business insights.</h4>
-      <details>
-        <summary>See details</summary>
-        <ul>
-          <li>KPIs (bookings, revenue, ratings, completion rate)</li>
-          <li>Trends over time (bookings, revenue)</li>
-          <li>Vehicle type &amp; payment method distributions</li>
-          <li>Cancellation patterns and reasons</li>
-          <li>Ratings breakdowns</li>
-          <li>Top routes by frequency and value</li>
-          <li>Auto-generated insights and summaries</li>
-        </ul>
-      </details>
+        <h4>Step 2: Data Preparation</h4>
+        <details>
+          <summary>See details</summary>
+          <ul>
+            <li>Parsed and cleaned in-app using <strong>PapaParse</strong></li>
+            <li>Handled missing values and nulls</li>
+            <li>Standardized labels/data types to prevent breakage during analysis</li>
+          </ul>
+        </details>
 
-      <h4>Step 4: Implementation - Build an interactive React + Vite dashboard with charts, filters, and styled components.</h4>
-      <details>
-        <summary>See details</summary>
-        <ul>
-          <li>Recharts for interactive charts</li>
-          <li>Tailwind CSS for styling and layout</li>
-          <li>lucide-react for icons</li>
-          <li>React state hooks for filters (vehicle type, payment method, date ranges)</li>
-        </ul>
+        <h4>Step 3: Dashboard Design</h4>
+        <details>
+          <summary>See details</summary>
+          <ul>
+            <li>KPIs (bookings, revenue, ratings, completion rate)</li>
+            <li>Trends over time (bookings, revenue)</li>
+            <li>Vehicle type &amp; payment method distributions</li>
+            <li>Cancellation patterns and reasons</li>
+            <li>Ratings breakdowns</li>
+            <li>Top routes by frequency and value</li>
+            <li>Auto-generated insights and summaries</li>
+          </ul>
+        </details>
+
+        <h4>Step 4: Implementation</h4>
+        <p>The dashboard was coded in React + Vite, using:</p>
+        <details>
+          <summary>See details</summary>
+          <ul>
+            <li>Recharts for interactive charts</li>
+            <li>Tailwind CSS for styling and layout</li>
+            <li>lucide-react for icons</li>
+            <li>React state hooks for filters (vehicle type, payment method, date ranges)</li>
+          </ul>
+        </details>
+
       </details>
+      <!-- End top-level Details -->
     </div>
   </section>
 

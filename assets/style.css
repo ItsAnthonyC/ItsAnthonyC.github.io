@@ -852,4 +852,18 @@ details[open] > summary::before { content: "▾"; }  /* open */
     flex: 1;  /* make inner content stretch evenly */
   }
 }
+/* Stack the three sections vertically (kill the old 2-col layout) */
+#executive-summary .exec-columns { display: block; grid-template-columns: none; gap: 0; }
 
+/* Ensure stacked spacing and card feel */
+#executive-summary .exec-col { margin-bottom: 18px; }
+#executive-summary .exec-col:last-child { margin-bottom: 0; }
+
+/* Keep “bubble” table/list style consistent for stacked sections */
+#executive-summary .exec-col > .ranked,
+#executive-summary .exec-col > .table-wrap {
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}

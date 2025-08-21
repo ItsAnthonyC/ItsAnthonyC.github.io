@@ -189,19 +189,21 @@ body{
   text-align:center;
   color:var(--muted);
 }
-/* Force <summary> markers to the left */
+
+/* ---- NEW: fix <details>/<summary> marker alignment ---- */
 details summary {
   display: flex;
   align-items: center;
   cursor: pointer;
+  list-style: none; /* removes default bullets */
 }
 
 details summary::-webkit-details-marker {
-  order: 0;   /* keeps the triangle on the left */
+  order: 0;
   margin-right: 6px;
 }
 
 details summary::marker {
-  order: 0;   /* for Firefox */
+  order: 0;
   margin-right: 6px;
 }

@@ -231,3 +231,30 @@ details > summary {
   font-weight: 600;
   color: var(--text);
 }
+/* Make each text block and the dropdown take a full row in project cards */
+.project-card h3,
+.project-card p,
+.project-card ul,
+.project-card ol,
+.project-card details {
+  flex: 0 0 100%;   /* full row inside the flex container */
+}
+
+/* Clean, left-aligned custom dropdown marker */
+details > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  list-style: none;      /* remove default bullets */
+  padding: 6px 0;
+  text-align: left;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::marker { content: ""; }
+details > summary::before {
+  content: "▸";          /* closed */
+  transition: transform .2s ease;
+  opacity: .85;
+}
+details[open] > summary::before { content: "▾"; }  /* open */

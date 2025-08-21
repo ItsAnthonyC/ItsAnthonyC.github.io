@@ -573,3 +573,33 @@ details[open] > summary::before { content: "▾"; }  /* open */
   pointer-events: none;
   box-shadow: 0 0 0 1px rgba(255,255,255,.02), 0 30px 80px rgba(0,0,0,.35) inset;
 }
+/* ----- Executive Summary fit & clipping fixes ----- */
+.project-card.executive {
+  /* stop inheriting the flex row behavior from .project-card */
+  display: block;              /* normal block flow is safer for wide content */
+  width: 100%;
+  position: relative;
+  overflow: hidden;            /* clip children to rounded border */
+  border-radius: 18px;         /* ensure visual rounding matches clipping */
+  padding: 22px 22px 18px;     /* keep your internal spacing */
+}
+
+/* ensure inner blocks respect the card width */
+#executive-summary .exec-head,
+#executive-summary .kpi-grid,
+#executive-summary .exec-columns,
+#executive-summary .exec-full,
+#executive-summary .table-wrap {
+  max-width: 100%;
+}
+
+/* tables should scroll inside the card, but not bleed past rounded corners */
+#executive-summary .table-wrap {
+  overflow: auto;              /* keep horizontal scroll if needed */
+  border-radius: 12px;         /* round the inner table container */
+}
+
+/* optional: prevent sticky headers from pushing out of the clip area */
+#executive-summary .data-table thead th {
+  background-clip: padding-box;
+}

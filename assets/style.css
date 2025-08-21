@@ -603,3 +603,107 @@ details[open] > summary::before { content: "▾"; }  /* open */
 #executive-summary .data-table thead th {
   background-clip: padding-box;
 }
+/* ==== Executive Summary — v4 layout & containment ==== */
+
+/* Use normal block flow, clip children, and keep consistent gutters */
+.project-card.executive {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 20px 20px 18px;      /* slightly tighter gutters */
+}
+
+/* Keep inner blocks honoring the card width */
+#executive-summary .exec-head,
+#executive-summary .kpi-grid,
+#executive-summary .exec-columns,
+#executive-summary .exec-full,
+#executive-summary .table-wrap {
+  max-width: 100%;
+}
+
+/* ---------- KPI row: even spacing + tidy sizing ---------- */
+.kpi-grid {
+  grid-template-columns: repeat(5, minmax(140px, 1fr));  /* a bit wider */
+  gap: 12px;
+}
+.kpi { padding: 12px; border-radius: 12px; }
+.kpi-label { font-size: .84rem; margin-bottom: 6px; opacity: .9; }
+.kpi-value {
+  font-size: 1.16rem;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  letter-spacing: 0; word-spacing: 0; white-space: nowrap;
+}
+
+/* ---------- Columns: equal height “cards” side-by-side ---------- */
+.exec-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: start;                    /* prevent stretching */
+}
+
+/* Turn each column’s primary block into a contained card without HTML changes */
+.exec-col > .ranked,
+.exec-col > .table-wrap {
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  padding: 10px;                         /* inner padding so edges don’t touch */
+  box-shadow: 0 6px 18px rgba(0,0,0,.28);
+}
+
+/* Ranked list inside its “card” */
+.exec-col > .ranked { padding: 12px; gap: 10px; }
+.ranked li { background: var(--panel-2); }
+
+/* Table inside its “card” */
+.exec-col > .table-wrap { padding: 0; overflow: hidden; }
+.exec-col > .table-wrap .data-table { min-width: 520px; } /* keeps columns readable */
+
+/* Sticky header stays inside clipped card */
+.exec-col > .table-wrap .data-table thead th {
+  position: sticky; top: 0; z-index: 1;
+  background-clip: padding-box;
+}
+
+/* ---------- Channel ROI block: match column cards ---------- */
+.exec-full {
+  width: 100%;
+  margin-top: 8px;
+}
+.exec-full .table-wrap {
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  overflow: hidden;                      /* clip table corners */
+  box-shadow: 0 6px 18px rgba(0,0,0,.28);
+}
+
+/* ---------- Head row refinements ---------- */
+.exec-head { margin-bottom: 10px; }
+.exec-meta { gap: 10px; }
+
+/* ---------- Numeric alignment (defensive) ---------- */
+#executive-summary .data-table thead th:nth-child(2),
+#executive-summary .data-table thead th:nth-child(3),
+#executive-summary .data-table thead th:nth-child(4),
+#executive-summary .data-table tbody td:nth-child(2),
+#executive-summary .data-table tbody td:nth-child(3),
+#executive-summary .data-table tbody td:nth-child(4) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .exec-columns { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+}
+

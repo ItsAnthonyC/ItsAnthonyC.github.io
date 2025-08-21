@@ -835,19 +835,21 @@ details[open] > summary::before { content: "▾"; }  /* open */
   border-radius: 12px;
   overflow: hidden;
 }
-/* Force the mid-blocks to stack vertically inside the Executive Summary */
-#executive-summary .exec-columns {
-  display: block;                /* stop using the 2-column grid */
+@media (min-width: 1200px) {
+  #executive-summary .exec-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: stretch;   /* force equal height */
+  }
+
+  #executive-summary .exec-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #executive-summary .exec-col > * {
+    flex: 1;  /* make inner content stretch evenly */
+  }
 }
 
-#executive-summary .exec-columns .exec-col {
-  margin-bottom: 16px;           /* gap between the two sections */
-}
-
-/* Make sure inner cards size naturally when stacked */
-#executive-summary .exec-col > .ranked,
-#executive-summary .exec-col > .table-wrap {
-  height: auto;
-  max-height: none;
-  flex: initial;
-}

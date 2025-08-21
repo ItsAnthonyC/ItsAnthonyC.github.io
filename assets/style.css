@@ -258,3 +258,101 @@ details > summary::before {
   opacity: .85;
 }
 details[open] > summary::before { content: "▾"; }  /* open */
+/* === Executive Summary polish === */
+.project-card.executive { align-items: stretch; }
+
+/* Header row with badges */
+.exec-head { flex: 0 0 100%; }
+.exec-head h3 { margin: 0 0 6px; }
+.exec-meta {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;
+}
+.badge {
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+.badge strong { font-weight: 700; }
+
+/* KPI grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+.kpi {
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  padding: 12px;
+}
+.kpi-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+.kpi-value {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1.1rem;
+  letter-spacing: .02em;
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--stroke);
+  margin: 14px 0;
+}
+
+/* Two-column block below KPIs */
+.exec-columns {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 14px;
+  width: 100%;
+}
+.exec-col h4 { margin: 0 0 8px; }
+
+/* Ranked list with right-aligned values */
+.ranked {
+  margin: 0; padding: 0; list-style: none;
+  display: grid; gap: 8px;
+}
+.ranked li {
+  display: flex; justify-content: space-between; align-items: baseline;
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.ranked li span { color: var(--text); }
+.ranked li strong {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Compact tables to match cards */
+.table-wrap.compact .data-table th,
+.table-wrap.compact .data-table td {
+  padding: 8px 10px;
+  font-size: 0.92rem;
+}
+.table-wrap.compact .data-table thead th {
+  background: var(--panel);
+}
+
+/* Full-width section under the columns */
+.exec-full { width: 100%; }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .exec-columns { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+}

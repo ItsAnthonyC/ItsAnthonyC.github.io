@@ -356,3 +356,129 @@ details[open] > summary::before { content: "▾"; }  /* open */
 @media (max-width: 560px) {
   .kpi-grid { grid-template-columns: 1fr 1fr; }
 }
+/* ===== Executive Summary — polish v2 ===== */
+
+/* 1) Global numeric polish */
+.kpi-value,
+.ranked li strong,
+.table-wrap .data-table td,
+.table-wrap .data-table th {
+  font-variant-numeric: tabular-nums lining-nums;     /* even columns */
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  letter-spacing: 0;                                   /* remove extra gaps */
+  white-space: nowrap;                                 /* keep $1,234,567 on one line */
+}
+
+/* 2) KPI cards: depth, subtle accent border, hover */
+.kpi-grid { gap: 12px; }
+.kpi {
+  position: relative;
+  background: linear-gradient(180deg, var(--panel) 0%, #1e1e26 100%);
+  border: 1px solid var(--stroke);
+  outline: 1px solid rgba(138,92,255,.08);            /* accent outline */
+  box-shadow: 0 6px 18px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+  transition: transform .15s ease, box-shadow .15s ease, outline-color .15s ease;
+}
+.kpi:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
+  outline-color: rgba(138,92,255,.16);
+}
+.kpi-label { opacity: .85; }
+.kpi-value {
+  font-size: 1.14rem;
+  /* optional subtle gradient ink for numbers */
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 3) Section divider tightened */
+.divider { margin: 18px 0; }
+
+/* 4) Ranked list: numbered chips + tighter layout */
+.ranked { gap: 10px; counter-reset: rank; }
+.ranked li {
+  counter-increment: rank;
+  padding: 10px 14px 10px 12px;
+  gap: 12px;
+}
+.ranked li::before {
+  content: counter(rank);
+  display: inline-grid;
+  place-items: center;
+  width: 28px; height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  color: #fff;
+  font-weight: 700;
+  font-size: .9rem;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+  margin-right: 6px;
+}
+.ranked li span { opacity: .95; }
+
+/* 5) Tables: sticky header, right-aligned numerics, nicer stripes */
+.table-wrap {
+  overflow: auto;
+  border-radius: 12px;
+  /* fade edges while scrolling horizontally */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+}
+.table-wrap .data-table {
+  min-width: 560px;                     /* ensures no cramped columns */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.table-wrap .data-table thead th {
+  position: sticky; top: 0; z-index: 1;
+  background: linear-gradient(180deg, var(--panel) 0%, #1f1f27 100%);
+  border-bottom: 1px solid var(--stroke);
+}
+.table-wrap .data-table th,
+.table-wrap .data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--stroke);
+}
+.table-wrap .data-table tbody tr:nth-child(odd) td {
+  background: rgba(255,255,255,.02);
+}
+.table-wrap .data-table tbody tr:hover td {
+  background: rgba(255,255,255,.04);
+}
+
+/* Right-align numeric columns (Sessions, Transactions, Conv., Spend, Revenue, ROI) */
+#executive-summary .data-table tbody td:nth-child(2),
+#executive-summary .data-table tbody td:nth-child(3),
+#executive-summary .data-table tbody td:nth-child(4) {
+  text-align: right;
+}
+#executive-summary .data-table thead th:nth-child(2),
+#executive-summary .data-table thead th:nth-child(3),
+#executive-summary .data-table thead th:nth-child(4) {
+  text-align: right;
+}
+
+/* 6) Layout breathing + headings */
+.exec-col h4 {
+  letter-spacing: .01em;
+  color: var(--text);
+}
+.exec-head h3 {
+  letter-spacing: .01em;
+}
+.exec-meta .badge {
+  backdrop-filter: blur(2px);
+}
+
+/* 7) Make the Executive Summary card itself feel premium */
+.project-card.executive {
+  background: linear-gradient(180deg, var(--panel-2) 0%, var(--panel) 100%);
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  box-shadow: 0 14px 40px rgba(0,0,0,.42);
+}
+

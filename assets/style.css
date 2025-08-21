@@ -706,4 +706,47 @@ details[open] > summary::before { content: "▾"; }  /* open */
 @media (max-width: 560px) {
   .kpi-grid { grid-template-columns: 1fr 1fr; }
 }
+/* --- Make the Channel Conversion table fit perfectly inside the card --- */
+
+/* Let the grid column shrink so content doesn't force overflow */
+.exec-columns .exec-col { min-width: 0; }
+
+/* The table's mini-card */
+.exec-col > .table-wrap {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  overflow: hidden;               /* clip table corners */
+  box-shadow: 0 6px 18px rgba(0,0,0,.28);
+}
+
+/* Table should fill the container and not enforce a wider min-width */
+.exec-col > .table-wrap .data-table {
+  width: 100%;
+  min-width: 0;                   /* overrides any earlier min-width */
+  border-collapse: collapse;
+  table-layout: fixed;            /* prevents column wobble/overflow */
+}
+
+/* Optional: set sensible column widths so it never nudges the border */
+.exec-col > .table-wrap .data-table thead th:nth-child(1) { width: 42%; }  /* Channel */
+.exec-col > .table-wrap .data-table thead th:nth-child(2),
+.exec-col > .table-wrap .data-table thead th:nth-child(3),
+.exec-col > .table-wrap .data-table thead th:nth-child(4) { width: 19.33%; }
+
+/* Keep numeric columns right-aligned & single-line */
+#executive-summary .data-table thead th:nth-child(2),
+#executive-summary .data-table thead th:nth-child(3),
+#executive-summary .data-table thead th:nth-child(4),
+#executive-summary .data-table tbody td:nth-child(2),
+#executive-summary .data-table tbody td:nth-child(3),
+#executive-summary .data-table tbody td:nth-child(4) {
+  text-align: right;
+  white-space: nowrap;
+}
 

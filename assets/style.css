@@ -922,3 +922,53 @@ details[open] > summary::before { content: "▾"; }  /* open */
   font-variant-numeric: tabular-nums lining-nums;
   font-feature-settings: "tnum" 1, "lnum" 1;
 }
+/* === EXEC SUMMARY: section divider, header style, and mobile scroll (strong overrides) === */
+
+/* 1) Divider line between each stacked block */
+#executive-summary .exec-col {
+  padding: 10px 0 18px !important;
+}
+#executive-summary .exec-col:not(:first-of-type) {
+  border-top: 1px solid var(--stroke) !important;  /* the line */
+  margin-top: 16px !important;
+  padding-top: 22px !important;
+}
+
+/* 2) Section headers: left-aligned chip */
+#executive-summary .exec-col > h4 {
+  margin: 0 0 10px !important;
+  padding: 4px 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-align: left !important;
+  background: var(--panel) !important;
+  border: 1px solid var(--stroke) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.22) !important;
+}
+
+/* 3) Tables: horizontal scroll on small screens */
+#executive-summary .table-wrap {
+  display: block !important;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;  /* iOS momentum */
+}
+#executive-summary .data-table {
+  min-width: 760px !important;        /* triggers horizontal scroll when narrow */
+  table-layout: auto;                  /* lets columns breathe */
+}
+
+/* Keep numeric columns right-aligned (defensive) */
+#executive-summary .data-table thead th:nth-child(2),
+#executive-summary .data-table thead th:nth-child(3),
+#executive-summary .data-table thead th:nth-child(4),
+#executive-summary .data-table tbody td:nth-child(2),
+#executive-summary .data-table tbody td:nth-child(3),
+#executive-summary .data-table tbody td:nth-child(4) {
+  text-align: right !important;
+  white-space: nowrap !important;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}

@@ -972,3 +972,27 @@ details[open] > summary::before { content: "▾"; }  /* open */
   font-variant-numeric: tabular-nums lining-nums;
   font-feature-settings: "tnum" 1, "lnum" 1;
 }
+/* 1) Tighten space under the hero */
+.hero, .intro, .profile, .note-card {
+  margin-bottom: 16px !important;   /* was likely 48–120px */
+  padding-bottom: 0 !important;
+}
+
+/* 2) Kill the extra space above the "Featured Projects" block */
+#projects {
+  margin-top: 8px !important;
+  padding-top: 0 !important;
+}
+
+/* 3) Headings shouldn’t push sections down */
+#projects > h2,
+section > h1:first-child,
+section > h2:first-child,
+section > h3:first-child {
+  margin-top: 0 !important;
+}
+
+/* Optional: if margins are collapsing between sections, prevent it */
+main > section {
+  overflow: auto; /* or add: border-top: 1px solid transparent; */
+}

@@ -768,3 +768,13 @@ details[open] > summary::before { content: "▾"; }  /* open */
   table-layout: fixed;
 }
 .exec-col > .table-wrap { overflow: hidden; }  /* keep rounded corners clean */
+.summary-columns {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.summary-columns > div {
+  flex: 1;
+  min-height: 280px; /* Adjust until they match nicely */
+}

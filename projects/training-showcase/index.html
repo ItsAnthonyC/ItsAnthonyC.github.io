@@ -10,6 +10,33 @@
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="icon" href="/assets/site/pfp.jpg" />
   <meta name="End-to-end analytics project using SQL, Excel, and Tableau to explore customer rides, cancellations, revenue, and campaign effectiveness. Includes cleaned datasets, SQL scripts, and dashboards." />
+
+  <style>
+    /* Dropdown styling */
+    details.step-brief {
+      background: rgba(0,0,0,.02);
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin-top: 0.5rem;
+    }
+    details.step-brief summary {
+      cursor: pointer;
+      font-weight: 600;
+      list-style: none;
+    }
+    details.step-brief summary::-webkit-details-marker {
+      display: none;
+    }
+    details.step-brief summary::after {
+      content: "▾";
+      margin-left: .5rem;
+      display: inline-block;
+      transition: transform .2s ease;
+    }
+    details.step-brief[open] > summary::after {
+      transform: rotate(180deg);
+    }
+  </style>
 </head>
 <body>
 
@@ -39,14 +66,17 @@
       <div class="project-body" style="width:100%">
         <h3>Excel (Power Query + PivotTables + Charts)</h3>
         <p class="goal"><strong>Goal:</strong> Quick KPIs, light modeling, printable executive readout.</p>
-        <ol>
-          <li>Open <code>Portfolio_Starter.xlsx</code> or import CSVs via Power Query.</li>
-          <li>Clean region labels, handle nulls, and add <em>Net Revenue</em> field.</li>
-          <li>Create a Date table (Year, Month, Year-Month) for consistent time analysis.</li>
-          <li>Build PivotTables: monthly trends, YoY helper, category/subcategory revenue, channel conversion & ROI.</li>
-          <li>Add charts: revenue trend lines, bar charts for categories and ROI, KPI cards.</li>
-          <li>Add slicers for Year, Region, Channel, Category and a “Data Notes” sheet documenting cleaning steps.</li>
-        </ol>
+        <details class="step-brief">
+          <summary>Steps</summary>
+          <ol>
+            <li>Open <code>Portfolio_Starter.xlsx</code> or import CSVs via Power Query.</li>
+            <li>Clean region labels, handle nulls, and add <em>Net Revenue</em> field.</li>
+            <li>Create a Date table (Year, Month, Year-Month) for consistent time analysis.</li>
+            <li>Build PivotTables: monthly trends, YoY helper, category/subcategory revenue, channel conversion & ROI.</li>
+            <li>Add charts: revenue trend lines, bar charts for categories and ROI, KPI cards.</li>
+            <li>Add slicers for Year, Region, Channel, Category and a “Data Notes” sheet documenting cleaning steps.</li>
+          </ol>
+        </details>
       </div>
     </article>
 
@@ -55,13 +85,16 @@
       <div class="project-body" style="width:100%">
         <h3>Tableau</h3>
         <p class="goal"><strong>Goal:</strong> Interactive executive dashboard with KPIs, trends, and drilldowns.</p>
-        <ol>
-          <li>Connect to CSVs or <code>Portfolio_Starter.xlsx</code>; relate <code>order_items</code>→<code>products</code>, and use <code>orders</code>, <code>web_sessions</code>, <code>channel_spend</code>.</li>
-          <li>Create calculated fields: <em>Net Revenue</em>, <em>Month</em>, <em>YoY %</em>, <em>Conversion %</em>, <em>ROI</em>.</li>
-          <li>Sheets to build: KPI tiles; Monthly Net Revenue + YoY; Channels (Conversion %, ROI); Products (Top Categories); Regions (map or bars).</li>
-          <li>Assemble a dashboard; add filters (Year, Region, Channel, Category) and descriptive tooltips.</li>
-          <li>Publish to Tableau Public and link from your portfolio.</li>
-        </ol>
+        <details class="step-brief">
+          <summary>Steps</summary>
+          <ol>
+            <li>Connect to CSVs or <code>Portfolio_Starter.xlsx</code>; relate <code>order_items</code>→<code>products</code>, and use <code>orders</code>, <code>web_sessions</code>, <code>channel_spend</code>.</li>
+            <li>Create calculated fields: <em>Net Revenue</em>, <em>Month</em>, <em>YoY %</em>, <em>Conversion %</em>, <em>ROI</em>.</li>
+            <li>Sheets to build: KPI tiles; Monthly Net Revenue + YoY; Channels (Conversion %, ROI); Products (Top Categories); Regions (map or bars).</li>
+            <li>Assemble a dashboard; add filters (Year, Region, Channel, Category) and descriptive tooltips.</li>
+            <li>Publish to Tableau Public and link from your portfolio.</li>
+          </ol>
+        </details>
       </div>
     </article>
 
@@ -70,14 +103,17 @@
       <div class="project-body" style="width:100%">
         <h3>Power BI</h3>
         <p class="goal"><strong>Goal:</strong> Same visuals as Tableau with a DAX semantic model.</p>
-        <ol>
-          <li>Load CSVs; in Model view create relationships and a Date table:
-            <br><code>DateTable = CALENDAR(DATE(2023,1,1), DATE(2025,6,30))</code></li>
-          <li>Add columns: Year, Month, YearMonth; write measures:
-            <br><em>Net Revenue</em>, <em>Orders</em>, <em>AOV</em>, <em>Return %</em>, <em>Sessions</em>, <em>Transactions</em>, <em>Conversion %</em>, <em>Revenue LY</em>, <em>YoY %</em>, <em>Spend</em>, <em>ROI</em>.</li>
-          <li>Create visuals: KPI cards; Revenue + YoY line; Conversion % by channel; ROI by channel; Revenue by category; Region momentum (recent vs prior 6m).</li>
-          <li>Add slicers for Year, Region, Channel, Category; format and publish/export.</li>
-        </ol>
+        <details class="step-brief">
+          <summary>Steps</summary>
+          <ol>
+            <li>Load CSVs; in Model view create relationships and a Date table:
+              <br><code>DateTable = CALENDAR(DATE(2023,1,1), DATE(2025,6,30))</code></li>
+            <li>Add columns: Year, Month, YearMonth; write measures:
+              <br><em>Net Revenue</em>, <em>Orders</em>, <em>AOV</em>, <em>Return %</em>, <em>Sessions</em>, <em>Transactions</em>, <em>Conversion %</em>, <em>Revenue LY</em>, <em>YoY %</em>, <em>Spend</em>, <em>ROI</em>.</li>
+            <li>Create visuals: KPI cards; Revenue + YoY line; Conversion % by channel; ROI by channel; Revenue by category; Region momentum (recent vs prior 6m).</li>
+            <li>Add slicers for Year, Region, Channel, Category; format and publish/export.</li>
+          </ol>
+        </details>
       </div>
     </article>
 
@@ -86,12 +122,15 @@
       <div class="project-body" style="width:100%">
         <h3>GitHub / Portfolio Site</h3>
         <p class="goal"><strong>Goal:</strong> Public, reproducible project with clear documentation.</p>
-        <ol>
-          <li>Repo structure:
-            <br><code>/data</code> (CSVs), <code>/analysis</code> (SQL), <code>/workbooks</code> (Excel), <code>/docs</code> (summary/insights).</li>
-          <li>README: READY overview, data schema diagram, reproduce steps, screenshots/GIFs of dashboards, key insights & recommendations.</li>
-          <li>Commit, push, and (if using GitHub Pages) deploy the project page; link assets (dashboards, PDFs, downloads).</li>
-        </ol>
+        <details class="step-brief">
+          <summary>Steps</summary>
+          <ol>
+            <li>Repo structure:
+              <br><code>/data</code> (CSVs), <code>/analysis</code> (SQL), <code>/workbooks</code> (Excel), <code>/docs</code> (summary/insights).</li>
+            <li>README: READY overview, data schema diagram, reproduce steps, screenshots/GIFs of dashboards, key insights & recommendations.</li>
+            <li>Commit, push, and (if using GitHub Pages) deploy the project page; link assets (dashboards, PDFs, downloads).</li>
+          </ol>
+        </details>
       </div>
     </article>
 
@@ -100,26 +139,25 @@
       <div class="project-body" style="width:100%">
         <h3>Word / Slide Deck</h3>
         <p class="goal"><strong>Goal:</strong> Concise narrative for executives (report + presentation).</p>
-        <ol>
-          <li>Word report: Executive summary; KPIs; trends; channel/product/region insights; recommendations; assumptions/limitations.</li>
-          <li>Slide deck (6 slides): Title + KPIs; Trend & Seasonality; Channel Performance; Product Performance; Regional Growth; 90-Day Action Plan.</li>
-          <li>Export to PDF and link from the project page.</li>
-        </ol>
+        <details class="step-brief">
+          <summary>Steps</summary>
+          <ol>
+            <li>Word report: Executive summary; KPIs; trends; channel/product/region insights; recommendations; assumptions/limitations.</li>
+            <li>Slide deck (6 slides): Title + KPIs; Trend & Seasonality; Channel Performance; Product Performance; Regional Growth; 90-Day Action Plan.</li>
+            <li>Export to PDF and link from the project page.</li>
+          </ol>
+        </details>
       </div>
     </article>
 
   </div>
 </section>
 
-
-   
   <!-- About / Next project teaser -->
   <section class="section">
     <h2>Additional Information</h2>
     <div class="note-card">You can go to business data insights page to view actionable insights.</div>
   </section>
-
-
 
   <footer class="footer">
     <p>© <span id="year"></span> Anthony Calvano</p>

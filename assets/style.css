@@ -258,717 +258,148 @@ details > summary::before {
   opacity: .85;
 }
 details[open] > summary::before { content: "▾"; }  /* open */
-/* === Executive Summary polish === */
-.project-card.executive { align-items: stretch; }
+/* === Executive Summary (final, stacked) =============================== */
+/* Card container */
+.project-card.executive{
+  display:block;
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  background:linear-gradient(180deg,var(--panel-2) 0%, var(--panel) 100%);
+  border:1px solid var(--stroke);
+  box-shadow:0 14px 40px rgba(0,0,0,.42);
+  padding:22px 22px 18px;
+}
 
-/* Header row with badges */
-.exec-head { flex: 0 0 100%; }
-.exec-head h3 { margin: 0 0 6px; }
-.exec-meta {
-  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;
+/* Header + meta badges */
+.exec-head{margin-bottom:10px}
+.exec-head h3{margin:0 0 6px; letter-spacing:.01em}
+.exec-meta{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px}
+.badge{
+  border:1px solid var(--stroke);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:.9rem;
+  backdrop-filter:blur(2px);
 }
-.badge {
-  border: 1px solid var(--stroke);
-  background: var(--panel);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.9rem;
-}
-.badge strong { font-weight: 700; }
+.badge strong{font-weight:700}
 
 /* KPI grid */
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(120px, 1fr));
-  gap: 10px;
-  width: 100%;
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(140px,1fr));
+  gap:12px;
+  width:100%;
 }
-.kpi {
-  background: var(--panel);
-  border: 1px solid var(--stroke);
-  border-radius: 12px;
-  padding: 12px;
+.kpi{
+  background:linear-gradient(180deg,var(--panel) 0%, #1e1e26 100%);
+  border:1px solid var(--stroke);
+  outline:1px solid rgba(138,92,255,.08);
+  border-radius:14px;
+  padding:14px 12px;
+  box-shadow:0 6px 18px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
 }
-.kpi-label {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-bottom: 4px;
-}
-.kpi-value {
-  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 1.1rem;
-  letter-spacing: .02em;
-}
-
-/* Divider */
-.divider {
-  width: 100%;
-  border: 0;
-  border-top: 1px solid var(--stroke);
-  margin: 14px 0;
+.kpi-label{color:var(--muted); font-size:.82rem; margin-bottom:6px; opacity:.85}
+.kpi-value{
+  font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric:tabular-nums lining-nums;
+  font-feature-settings:"tnum" 1, "lnum" 1;
+  font-size:1.18rem; line-height:1.15; white-space:nowrap;
+  background:linear-gradient(90deg,var(--grad-a),var(--grad-b));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
 }
 
-/* Two-column block below KPIs */
-.exec-columns {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 14px;
-  width: 100%;
-}
-.exec-col h4 { margin: 0 0 8px; }
+/* Divider after KPIs */
+.divider{width:100%; border:0; border-top:1px solid var(--stroke); margin:16px 0}
 
-/* Ranked list with right-aligned values */
-.ranked {
-  margin: 0; padding: 0; list-style: none;
-  display: grid; gap: 8px;
+/* ===== Stacked sections (Top Categories → Channel Conversion → ROI) */
+#executive-summary .exec-col{
+  padding:10px 0 18px;
 }
-.ranked li {
-  display: flex; justify-content: space-between; align-items: baseline;
-  background: var(--panel);
-  border: 1px solid var(--stroke);
-  border-radius: 10px;
-  padding: 10px 12px;
-}
-.ranked li span { color: var(--text); }
-.ranked li strong {
-  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+#executive-summary .exec-col:not(:first-of-type){
+  border-top:1px solid var(--stroke);     /* divider between tables */
+  margin-top:16px;
+  padding-top:22px;
 }
 
-/* Compact tables to match cards */
-.table-wrap.compact .data-table th,
-.table-wrap.compact .data-table td {
-  padding: 8px 10px;
-  font-size: 0.92rem;
-}
-.table-wrap.compact .data-table thead th {
-  background: var(--panel);
+/* Section headers (left-aligned chip) */
+#executive-summary .exec-col > h4{
+  margin:0 0 10px; padding:4px 10px;
+  display:inline-flex; align-items:center; gap:8px;
+  font-weight:700; letter-spacing:.01em;
+  background:var(--panel);
+  border:1px solid var(--stroke);
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,.22);
 }
 
-/* Full-width section under the columns */
-.exec-full { width: 100%; }
-
-/* Responsive tweaks */
-@media (max-width: 900px) {
-  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
-  .exec-columns { grid-template-columns: 1fr; }
+/* Ranked list (Top Categories) */
+.ranked{margin:0; padding:0; list-style:none; display:grid; gap:10px}
+.ranked li{
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  background:var(--panel); border:1px solid var(--stroke); border-radius:12px;
+  padding:10px 14px 10px 12px;
+  counter-increment:rank;
 }
-@media (max-width: 560px) {
-  .kpi-grid { grid-template-columns: 1fr 1fr; }
+.ranked li::before{
+  content:counter(rank);
+  display:inline-grid; place-items:center;
+  width:26px; height:26px; border-radius:999px;
+  background:linear-gradient(90deg,var(--grad-a),var(--grad-b));
+  color:#fff; font-weight:700; font-size:.85rem;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 6px 16px rgba(0,0,0,.35); margin-right:6px;
 }
-/* ===== Executive Summary — polish v2 ===== */
-
-/* 1) Global numeric polish */
-.kpi-value,
 .ranked li strong,
-.table-wrap .data-table td,
-.table-wrap .data-table th {
-  font-variant-numeric: tabular-nums lining-nums;     /* even columns */
-  font-feature-settings: "tnum" 1, "lnum" 1;
-  letter-spacing: 0;                                   /* remove extra gaps */
-  white-space: nowrap;                                 /* keep $1,234,567 on one line */
+.ranked li span{
+  font-variant-numeric:tabular-nums lining-nums; font-feature-settings:"tnum" 1, "lnum" 1;
+  letter-spacing:0; word-spacing:0; white-space:nowrap;
 }
 
-/* 2) KPI cards: depth, subtle accent border, hover */
-.kpi-grid { gap: 12px; }
-.kpi {
-  position: relative;
-  background: linear-gradient(180deg, var(--panel) 0%, #1e1e26 100%);
-  border: 1px solid var(--stroke);
-  outline: 1px solid rgba(138,92,255,.08);            /* accent outline */
-  box-shadow: 0 6px 18px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
-  transition: transform .15s ease, box-shadow .15s ease, outline-color .15s ease;
-}
-.kpi:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
-  outline-color: rgba(138,92,255,.16);
-}
-.kpi-label { opacity: .85; }
-.kpi-value {
-  font-size: 1.14rem;
-  /* optional subtle gradient ink for numbers */
-  background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Table container: enable horizontal scroll on narrow screens */
+#executive-summary .table-wrap{
+  display:block;
+  overflow-x:auto; overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  border-radius:12px;
+  /* subtle fade at edges while scrolling */
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+          mask-image:linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
 }
 
-/* 3) Section divider tightened */
-.divider { margin: 18px 0; }
+/* Table styles (bubble rows) */
+#executive-summary .data-table{
+  width:100%; min-width:760px;            /* scroll kicks in below this width */
+  border-collapse:separate; border-spacing:0 8px;
+  background:transparent;
+}
+#executive-summary .data-table thead th{
+  position:sticky; top:0; z-index:1;
+  background:linear-gradient(180deg,var(--panel) 0%, #1f1f27 100%);
+  border:1px solid var(--stroke); border-bottom:1px solid var(--stroke);
+  padding:8px 10px;
+}
+#executive-summary .data-table tbody td{
+  background:var(--panel); border:1px solid var(--stroke); padding:10px 12px;
+}
+#executive-summary .data-table tbody td:first-child{border-radius:10px 0 0 10px}
+#executive-summary .data-table tbody td:last-child{border-radius:0 10px 10px 0}
+#executive-summary .data-table tbody tr:hover td{background:rgba(255,255,255,.04)}
 
-/* 4) Ranked list: numbered chips + tighter layout */
-.ranked { gap: 10px; counter-reset: rank; }
-.ranked li {
-  counter-increment: rank;
-  padding: 10px 14px 10px 12px;
-  gap: 12px;
-}
-.ranked li::before {
-  content: counter(rank);
-  display: inline-grid;
-  place-items: center;
-  width: 28px; height: 28px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
-  color: #fff;
-  font-weight: 700;
-  font-size: .9rem;
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 6px 16px rgba(0,0,0,.35);
-  margin-right: 6px;
-}
-.ranked li span { opacity: .95; }
-
-/* 5) Tables: sticky header, right-aligned numerics, nicer stripes */
-.table-wrap {
-  overflow: auto;
-  border-radius: 12px;
-  /* fade edges while scrolling horizontally */
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
-          mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
-}
-.table-wrap .data-table {
-  min-width: 560px;                     /* ensures no cramped columns */
-  border-collapse: separate;
-  border-spacing: 0;
-}
-.table-wrap .data-table thead th {
-  position: sticky; top: 0; z-index: 1;
-  background: linear-gradient(180deg, var(--panel) 0%, #1f1f27 100%);
-  border-bottom: 1px solid var(--stroke);
-}
-.table-wrap .data-table th,
-.table-wrap .data-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--stroke);
-}
-.table-wrap .data-table tbody tr:nth-child(odd) td {
-  background: rgba(255,255,255,.02);
-}
-.table-wrap .data-table tbody tr:hover td {
-  background: rgba(255,255,255,.04);
-}
-
-/* Right-align numeric columns (Sessions, Transactions, Conv., Spend, Revenue, ROI) */
-#executive-summary .data-table tbody td:nth-child(2),
-#executive-summary .data-table tbody td:nth-child(3),
-#executive-summary .data-table tbody td:nth-child(4) {
-  text-align: right;
-}
-#executive-summary .data-table thead th:nth-child(2),
-#executive-summary .data-table thead th:nth-child(3),
-#executive-summary .data-table thead th:nth-child(4) {
-  text-align: right;
-}
-
-/* 6) Layout breathing + headings */
-.exec-col h4 {
-  letter-spacing: .01em;
-  color: var(--text);
-}
-.exec-head h3 {
-  letter-spacing: .01em;
-}
-.exec-meta .badge {
-  backdrop-filter: blur(2px);
-}
-
-/* 7) Make the Executive Summary card itself feel premium */
-.project-card.executive {
-  background: linear-gradient(180deg, var(--panel-2) 0%, var(--panel) 100%);
-  border-radius: 18px;
-  border: 1px solid var(--stroke);
-  box-shadow: 0 14px 40px rgba(0,0,0,.42);
-}
-/* ===== Executive Summary — polish v3 ===== */
-
-/* 0) Global numeric tightness (fixes spaces around commas/dots) */
-.kpi-value,
-.ranked li strong,
-#executive-summary .data-table td,
-#executive-summary .data-table th {
-  font-variant-numeric: tabular-nums lining-nums;
-  font-feature-settings: "tnum" 1, "lnum" 1;
-  letter-spacing: 0 !important;
-  word-spacing: 0 !important;
-}
-
-/* 1) Card spacing + header rhythm */
-.project-card.executive {
-  padding: 22px 22px 18px;
-}
-.exec-head { margin-bottom: 8px; }
-.exec-meta { margin-bottom: 12px; }
-
-/* 2) KPI grid tweaks */
-.kpi-grid { gap: 10px; }
-.kpi {
-  padding: 14px 12px;
-  border-radius: 14px;
-  outline-offset: -1px;
-}
-.kpi-label {
-  font-size: .82rem;
-  opacity: .85;
-  margin-bottom: 6px;
-}
-.kpi-value {
-  font-size: 1.18rem;
-  line-height: 1.15;
-}
-@media (max-width: 900px) {
-  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 560px) {
-  .kpi-grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* 3) Section divider + headings */
-.divider { margin: 16px 0; }
-.exec-col h4 {
-  margin: 0 0 10px;
-  font-weight: 700;
-}
-
-/* 4) Ranked list: tighter currency, stronger separation */
-.ranked { gap: 8px; }
-.ranked li {
-  padding: 10px 12px;
-  border-radius: 12px;
-}
-.ranked li::before {
-  width: 26px; height: 26px; font-size: .85rem;
-}
-.ranked li span { opacity: .98; }
-.ranked li strong {
-  letter-spacing: 0;           /* kill any accidental tracking */
-  word-spacing: 0;             /* and word spacing */
-}
-
-/* 5) Tables: consistent numeric right-align + narrower header cells */
+/* Right-align numeric columns */
 #executive-summary .data-table thead th:nth-child(2),
 #executive-summary .data-table thead th:nth-child(3),
 #executive-summary .data-table thead th:nth-child(4),
 #executive-summary .data-table tbody td:nth-child(2),
 #executive-summary .data-table tbody td:nth-child(3),
-#executive-summary .data-table tbody td:nth-child(4) {
-  text-align: right;
-}
-.table-wrap.compact .data-table th,
-.table-wrap.compact .data-table td {
-  padding: 9px 10px;
+#executive-summary .data-table tbody td:nth-child(4){
+  text-align:right; white-space:nowrap;
+  font-variant-numeric:tabular-nums lining-nums; font-feature-settings:"tnum" 1, "lnum" 1;
 }
 
-/* 6) Subtle section caps to separate blocks */
-#executive-summary .exec-columns { margin-bottom: 12px; }
-#executive-summary .exec-full { margin-top: 4px; }
-
-/* 7) Gentle spotlight around the executive card */
-.project-card.executive::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 18px;
-  pointer-events: none;
-  box-shadow: 0 0 0 1px rgba(255,255,255,.02), 0 30px 80px rgba(0,0,0,.35) inset;
-}
-/* ----- Executive Summary fit & clipping fixes ----- */
-.project-card.executive {
-  /* stop inheriting the flex row behavior from .project-card */
-  display: block;              /* normal block flow is safer for wide content */
-  width: 100%;
-  position: relative;
-  overflow: hidden;            /* clip children to rounded border */
-  border-radius: 18px;         /* ensure visual rounding matches clipping */
-  padding: 22px 22px 18px;     /* keep your internal spacing */
-}
-
-/* ensure inner blocks respect the card width */
-#executive-summary .exec-head,
-#executive-summary .kpi-grid,
-#executive-summary .exec-columns,
-#executive-summary .exec-full,
-#executive-summary .table-wrap {
-  max-width: 100%;
-}
-
-/* tables should scroll inside the card, but not bleed past rounded corners */
-#executive-summary .table-wrap {
-  overflow: auto;              /* keep horizontal scroll if needed */
-  border-radius: 12px;         /* round the inner table container */
-}
-
-/* optional: prevent sticky headers from pushing out of the clip area */
-#executive-summary .data-table thead th {
-  background-clip: padding-box;
-}
-/* ==== Executive Summary — v4 layout & containment ==== */
-
-/* Use normal block flow, clip children, and keep consistent gutters */
-.project-card.executive {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  border-radius: 18px;
-  padding: 20px 20px 18px;      /* slightly tighter gutters */
-}
-
-/* Keep inner blocks honoring the card width */
-#executive-summary .exec-head,
-#executive-summary .kpi-grid,
-#executive-summary .exec-columns,
-#executive-summary .exec-full,
-#executive-summary .table-wrap {
-  max-width: 100%;
-}
-
-/* ---------- KPI row: even spacing + tidy sizing ---------- */
-.kpi-grid {
-  grid-template-columns: repeat(5, minmax(140px, 1fr));  /* a bit wider */
-  gap: 12px;
-}
-.kpi { padding: 12px; border-radius: 12px; }
-.kpi-label { font-size: .84rem; margin-bottom: 6px; opacity: .9; }
-.kpi-value {
-  font-size: 1.16rem;
-  line-height: 1.15;
-  font-variant-numeric: tabular-nums lining-nums;
-  font-feature-settings: "tnum" 1, "lnum" 1;
-  letter-spacing: 0; word-spacing: 0; white-space: nowrap;
-}
-
-/* ---------- Columns: equal height “cards” side-by-side ---------- */
-.exec-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  align-items: start;                    /* prevent stretching */
-}
-
-/* Turn each column’s primary block into a contained card without HTML changes */
-.exec-col > .ranked,
-.exec-col > .table-wrap {
-  background: var(--panel);
-  border: 1px solid var(--stroke);
-  border-radius: 12px;
-  padding: 10px;                         /* inner padding so edges don’t touch */
-  box-shadow: 0 6px 18px rgba(0,0,0,.28);
-}
-
-/* Ranked list inside its “card” */
-.exec-col > .ranked { padding: 12px; gap: 10px; }
-.ranked li { background: var(--panel-2); }
-
-/* Table inside its “card” */
-.exec-col > .table-wrap { padding: 0; overflow: hidden; }
-.exec-col > .table-wrap .data-table { min-width: 520px; } /* keeps columns readable */
-
-/* Sticky header stays inside clipped card */
-.exec-col > .table-wrap .data-table thead th {
-  position: sticky; top: 0; z-index: 1;
-  background-clip: padding-box;
-}
-
-/* ---------- Channel ROI block: match column cards ---------- */
-.exec-full {
-  width: 100%;
-  margin-top: 8px;
-}
-.exec-full .table-wrap {
-  background: var(--panel);
-  border: 1px solid var(--stroke);
-  border-radius: 12px;
-  overflow: hidden;                      /* clip table corners */
-  box-shadow: 0 6px 18px rgba(0,0,0,.28);
-}
-
-/* ---------- Head row refinements ---------- */
-.exec-head { margin-bottom: 10px; }
-.exec-meta { gap: 10px; }
-
-/* ---------- Numeric alignment (defensive) ---------- */
-#executive-summary .data-table thead th:nth-child(2),
-#executive-summary .data-table thead th:nth-child(3),
-#executive-summary .data-table thead th:nth-child(4),
-#executive-summary .data-table tbody td:nth-child(2),
-#executive-summary .data-table tbody td:nth-child(3),
-#executive-summary .data-table tbody td:nth-child(4) {
-  text-align: right;
-  white-space: nowrap;
-}
-
-/* ---------- Responsive tweaks ---------- */
-@media (max-width: 900px) {
-  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
-  .exec-columns { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .kpi-grid { grid-template-columns: 1fr 1fr; }
-}
-/* --- Make the Channel Conversion table fit perfectly inside the card --- */
-
-/* Let the grid column shrink so content doesn't force overflow */
-.exec-columns .exec-col { min-width: 0; }
-
-/* The table's mini-card */
-.exec-col > .table-wrap {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  background: var(--panel);
-  border: 1px solid var(--stroke);
-  border-radius: 12px;
-  overflow: hidden;               /* clip table corners */
-  box-shadow: 0 6px 18px rgba(0,0,0,.28);
-}
-
-/* Table should fill the container and not enforce a wider min-width */
-.exec-col > .table-wrap .data-table {
-  width: 100%;
-  min-width: 0;                   /* overrides any earlier min-width */
-  border-collapse: collapse;
-  table-layout: fixed;            /* prevents column wobble/overflow */
-}
-
-/* Optional: set sensible column widths so it never nudges the border */
-.exec-col > .table-wrap .data-table thead th:nth-child(1) { width: 42%; }  /* Channel */
-.exec-col > .table-wrap .data-table thead th:nth-child(2),
-.exec-col > .table-wrap .data-table thead th:nth-child(3),
-.exec-col > .table-wrap .data-table thead th:nth-child(4) { width: 19.33%; }
-
-/* Keep numeric columns right-aligned & single-line */
-#executive-summary .data-table thead th:nth-child(2),
-#executive-summary .data-table thead th:nth-child(3),
-#executive-summary .data-table thead th:nth-child(4),
-#executive-summary .data-table tbody td:nth-child(2),
-#executive-summary .data-table tbody td:nth-child(3),
-#executive-summary .data-table tbody td:nth-child(4) {
-  text-align: right;
-  white-space: nowrap;
-}
-/* Equal-height columns for Top Categories & Channel Conversion */
-.exec-columns { align-items: stretch; }        /* let grid items stretch to same height */
-.exec-columns .exec-col { display: flex; }     /* make each column a flex container */
-
-/* Make the inner card fill the column height */
-.exec-col > .ranked,
-.exec-col > .table-wrap {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Let the list/table take remaining space inside its card */
-.exec-col > .ranked { gap: 10px; }
-.exec-col > .table-wrap .data-table {
-  width: 100%;
-  table-layout: fixed;
-}
-.exec-col > .table-wrap { overflow: hidden; }  /* keep rounded corners clean */
-.summary-columns {
-  display: flex;
-  gap: 20px;
-  align-items: stretch;
-}
-
-.summary-columns > div {
-  flex: 1;
-  min-height: 280px; /* Adjust until they match nicely */
-}
-/* === Executive Summary: bubble-style tables === */
-#executive-summary .data-table {
-  width: 100%;
-  border-collapse: separate !important;   /* allow row gaps */
-  border-spacing: 0 8px !important;       /* vertical gap = bubble separation */
-  background: transparent;                /* rows provide their own background */
-}
-
-#executive-summary .data-table thead th {
-  position: sticky; top: 0; z-index: 1;
-  background: linear-gradient(180deg, var(--panel) 0%, #1f1f27 100%);
-  border: 1px solid var(--stroke);
-  border-bottom: 1px solid var(--stroke);
-  padding: 8px 10px;
-}
-
-/* Bubble rows */
-#executive-summary .data-table tbody tr td {
-  background: var(--panel);
-  border: 1px solid var(--stroke);
-  padding: 10px 12px;
-}
-
-/* Round just the ends of each bubble row */
-#executive-summary .data-table tbody tr td:first-child {
-  border-radius: 10px 0 0 10px;
-}
-#executive-summary .data-table tbody tr td:last-child {
-  border-radius: 0 10px 10px 0;
-}
-
-/* Subtle hover for bubbles */
-#executive-summary .data-table tbody tr:hover td {
-  background: rgba(255,255,255,.04);
-}
-
-/* Keep numbers tidy and right-aligned for numeric columns */
-#executive-summary .data-table thead th:nth-child(2),
-#executive-summary .data-table thead th:nth-child(3),
-#executive-summary .data-table thead th:nth-child(4),
-#executive-summary .data-table tbody td:nth-child(2),
-#executive-summary .data-table tbody td:nth-child(3),
-#executive-summary .data-table tbody td:nth-child(4) {
-  text-align: right;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums lining-nums;
-  font-feature-settings: "tnum" 1, "lnum" 1;
-}
-
-/* Keep tables neatly inside their cards with rounded clipping */
-.exec-col > .table-wrap,
-.exec-full .table-wrap {
-  background: transparent;
-  border: 0;
-  border-radius: 12px;
-  overflow: hidden;
-}
-@media (min-width: 1200px) {
-  #executive-summary .exec-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    align-items: stretch;   /* force equal height */
-  }
-
-  #executive-summary .exec-col {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #executive-summary .exec-col > * {
-    flex: 1;  /* make inner content stretch evenly */
-  }
-}
-/* Stack the three sections vertically (kill the old 2-col layout) */
-#executive-summary .exec-columns { display: block; grid-template-columns: none; gap: 0; }
-
-/* Ensure stacked spacing and card feel */
-#executive-summary .exec-col { margin-bottom: 18px; }
-#executive-summary .exec-col:last-child { margin-bottom: 0; }
-
-/* Keep “bubble” table/list style consistent for stacked sections */
-#executive-summary .exec-col > .ranked,
-#executive-summary .exec-col > .table-wrap {
-  background: transparent;
-  border: 0;
-  border-radius: 12px;
-  overflow: hidden;
-}
-/* --- Executive Summary: section separators, headers, and mobile scroll --- */
-
-/* 1) Divider line between stacked sections */
-#executive-summary .exec-col {
-  padding: 10px 0 16px;
-}
-#executive-summary .exec-col + .exec-col {
-  border-top: 1px solid var(--stroke);   /* the line between tables */
-  margin-top: 14px;
-  padding-top: 22px;                     /* breathing room after the line */
-}
-
-/* 2) Section headers: left-aligned, vertically centered in their row */
-#executive-summary .exec-col > h4 {
-  margin: 0 0 10px;
-  padding: 4px 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  text-align: left;
-  background: var(--panel);
-  border: 1px solid var(--stroke);
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.22);
-}
-
-/* 3) Make all tables horizontally scrollable on small screens */
-#executive-summary .table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;     /* momentum scroll on iOS */
-}
-
-/* Give tables a sensible minimum width so columns don't crush */
-#executive-summary .data-table {
-  min-width: 680px;                      /* scroll kicks in below this width */
-}
-
-/* Optional: a bit narrower on very small phones */
-@media (max-width: 420px) {
-  #executive-summary .data-table { min-width: 560px; }
-}
-
-/* Keep numeric columns right-aligned (defensive re-assert) */
-#executive-summary .data-table thead th:nth-child(2),
-#executive-summary .data-table thead th:nth-child(3),
-#executive-summary .data-table thead th:nth-child(4),
-#executive-summary .data-table tbody td:nth-child(2),
-#executive-summary .data-table tbody td:nth-child(3),
-#executive-summary .data-table tbody td:nth-child(4) {
-  text-align: right;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums lining-nums;
-  font-feature-settings: "tnum" 1, "lnum" 1;
-}
-/* === EXEC SUMMARY: section divider, header style, and mobile scroll (strong overrides) === */
-
-/* 1) Divider line between each stacked block */
-#executive-summary .exec-col {
-  padding: 10px 0 18px !important;
-}
-#executive-summary .exec-col:not(:first-of-type) {
-  border-top: 1px solid var(--stroke) !important;  /* the line */
-  margin-top: 16px !important;
-  padding-top: 22px !important;
-}
-
-/* 2) Section headers: left-aligned chip */
-#executive-summary .exec-col > h4 {
-  margin: 0 0 10px !important;
-  padding: 4px 10px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  text-align: left !important;
-  background: var(--panel) !important;
-  border: 1px solid var(--stroke) !important;
-  border-radius: 10px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,.22) !important;
-}
-
-/* 3) Tables: horizontal scroll on small screens */
-#executive-summary .table-wrap {
-  display: block !important;
-  overflow-x: auto !important;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;  /* iOS momentum */
-}
-#executive-summary .data-table {
-  min-width: 760px !important;        /* triggers horizontal scroll when narrow */
-  table-layout: auto;                  /* lets columns breathe */
-}
-
-/* Keep numeric columns right-aligned (defensive) */
-#executive-summary .data-table thead th:nth-child(2),
-#executive-summary .data-table thead th:nth-child(3),
-#executive-summary .data-table thead th:nth-child(4),
-#executive-summary .data-table tbody td:nth-child(2),
-#executive-summary .data-table tbody td:nth-child(3),
-#executive-summary .data-table tbody td:nth-child(4) {
-  text-align: right !important;
-  white-space: nowrap !important;
-  font-variant-numeric: tabular-nums lining-nums;
-  font-feature-settings: "tnum" 1, "lnum" 1;
-}
+/* Responsive KPI grid */
+@media (max-width:900px){ .kpi-grid{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:560px){ .kpi-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:420px){ #executive-summary .data-table{min-width:560px} }

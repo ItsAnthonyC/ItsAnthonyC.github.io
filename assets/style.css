@@ -189,3 +189,19 @@ body{
   text-align:center;
   color:var(--muted);
 }
+/* Force <summary> markers to the left */
+details summary {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+details summary::-webkit-details-marker {
+  order: 0;   /* keeps the triangle on the left */
+  margin-right: 6px;
+}
+
+details summary::marker {
+  order: 0;   /* for Firefox */
+  margin-right: 6px;
+}

@@ -867,3 +867,58 @@ details[open] > summary::before { content: "▾"; }  /* open */
   border-radius: 12px;
   overflow: hidden;
 }
+/* --- Executive Summary: section separators, headers, and mobile scroll --- */
+
+/* 1) Divider line between stacked sections */
+#executive-summary .exec-col {
+  padding: 10px 0 16px;
+}
+#executive-summary .exec-col + .exec-col {
+  border-top: 1px solid var(--stroke);   /* the line between tables */
+  margin-top: 14px;
+  padding-top: 22px;                     /* breathing room after the line */
+}
+
+/* 2) Section headers: left-aligned, vertically centered in their row */
+#executive-summary .exec-col > h4 {
+  margin: 0 0 10px;
+  padding: 4px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  text-align: left;
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.22);
+}
+
+/* 3) Make all tables horizontally scrollable on small screens */
+#executive-summary .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;     /* momentum scroll on iOS */
+}
+
+/* Give tables a sensible minimum width so columns don't crush */
+#executive-summary .data-table {
+  min-width: 680px;                      /* scroll kicks in below this width */
+}
+
+/* Optional: a bit narrower on very small phones */
+@media (max-width: 420px) {
+  #executive-summary .data-table { min-width: 560px; }
+}
+
+/* Keep numeric columns right-aligned (defensive re-assert) */
+#executive-summary .data-table thead th:nth-child(2),
+#executive-summary .data-table thead th:nth-child(3),
+#executive-summary .data-table thead th:nth-child(4),
+#executive-summary .data-table tbody td:nth-child(2),
+#executive-summary .data-table tbody td:nth-child(3),
+#executive-summary .data-table tbody td:nth-child(4) {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}

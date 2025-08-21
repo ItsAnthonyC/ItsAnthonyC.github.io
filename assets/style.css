@@ -835,18 +835,11 @@ details[open] > summary::before { content: "▾"; }  /* open */
   border-radius: 12px;
   overflow: hidden;
 }
-/* Side-by-side on wide screens; stacked below 1200px */
+/* Force the mid-blocks to stack vertically inside the Executive Summary */
 #executive-summary .exec-columns {
-  display: grid;
-  grid-template-columns: 1fr;           /* default: stacked */
-  gap: 14px;
+  display: block;                /* stop using the 2-column grid */
 }
 
-@media (min-width: 1200px) {
-  #executive-summary .exec-columns {
-    grid-template-columns: 1fr 1fr;     /* wide: two columns */
-  }
-}
 #executive-summary .exec-columns .exec-col {
   margin-bottom: 16px;           /* gap between the two sections */
 }

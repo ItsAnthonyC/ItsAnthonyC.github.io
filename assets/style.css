@@ -190,20 +190,44 @@ body{
   color:var(--muted);
 }
 
-/* ---- NEW: fix <details>/<summary> marker alignment ---- */
-details summary {
-  display: flex;
+/* Force dropdown arrow on the LEFT, consistently */
+details {
+  width: 100%;                    /* makes the dropdown span the card width */
+  margin-top: 8px;
+}
+
+details > summary {
+  display: inline-flex;           /* left-to-right inline row */
   align-items: center;
+  gap: 8px;
   cursor: pointer;
-  list-style: none; /* removes default bullets */
+  list-style: none;               /* remove default bullets */
+  text-align: left;               /* guard against any right-align parents */
+  padding: 6px 0;
 }
 
-details summary::-webkit-details-marker {
-  order: 0;
-  margin-right: 6px;
+/* Hide the native disclosure triangle across browsers */
+details > summary::-webkit-details-marker { display: none; }
+details > summary::marker { content: ""; }
+
+/* Custom left arrow */
+details > summary::before {
+  content: "▸";                   /* closed state */
+  display: inline-block;
+  transform-origin: center;
+  transition: transform .2s ease;
+  font-size: 0.95em;
+  line-height: 1;
+  opacity: 0.85;
 }
 
-details summary::marker {
-  order: 0;
-  margin-right: 6px;
+/* Open state */
+details[open] > summary::before {
+  content: "▾";
+}
+
+/* Optional: make the "Direction" label stand out a bit */
+details > summary {
+  font-weight: 600;
+  color: var(--text);
 }

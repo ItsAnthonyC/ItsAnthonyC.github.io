@@ -749,4 +749,22 @@ details[open] > summary::before { content: "▾"; }  /* open */
   text-align: right;
   white-space: nowrap;
 }
+/* Equal-height columns for Top Categories & Channel Conversion */
+.exec-columns { align-items: stretch; }        /* let grid items stretch to same height */
+.exec-columns .exec-col { display: flex; }     /* make each column a flex container */
 
+/* Make the inner card fill the column height */
+.exec-col > .ranked,
+.exec-col > .table-wrap {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Let the list/table take remaining space inside its card */
+.exec-col > .ranked { gap: 10px; }
+.exec-col > .table-wrap .data-table {
+  width: 100%;
+  table-layout: fixed;
+}
+.exec-col > .table-wrap { overflow: hidden; }  /* keep rounded corners clean */

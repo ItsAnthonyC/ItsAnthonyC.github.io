@@ -481,4 +481,95 @@ details[open] > summary::before { content: "▾"; }  /* open */
   border: 1px solid var(--stroke);
   box-shadow: 0 14px 40px rgba(0,0,0,.42);
 }
+/* ===== Executive Summary — polish v3 ===== */
 
+/* 0) Global numeric tightness (fixes spaces around commas/dots) */
+.kpi-value,
+.ranked li strong,
+#executive-summary .data-table td,
+#executive-summary .data-table th {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
+}
+
+/* 1) Card spacing + header rhythm */
+.project-card.executive {
+  padding: 22px 22px 18px;
+}
+.exec-head { margin-bottom: 8px; }
+.exec-meta { margin-bottom: 12px; }
+
+/* 2) KPI grid tweaks */
+.kpi-grid { gap: 10px; }
+.kpi {
+  padding: 14px 12px;
+  border-radius: 14px;
+  outline-offset: -1px;
+}
+.kpi-label {
+  font-size: .82rem;
+  opacity: .85;
+  margin-bottom: 6px;
+}
+.kpi-value {
+  font-size: 1.18rem;
+  line-height: 1.15;
+}
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* 3) Section divider + headings */
+.divider { margin: 16px 0; }
+.exec-col h4 {
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+/* 4) Ranked list: tighter currency, stronger separation */
+.ranked { gap: 8px; }
+.ranked li {
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+.ranked li::before {
+  width: 26px; height: 26px; font-size: .85rem;
+}
+.ranked li span { opacity: .98; }
+.ranked li strong {
+  letter-spacing: 0;           /* kill any accidental tracking */
+  word-spacing: 0;             /* and word spacing */
+}
+
+/* 5) Tables: consistent numeric right-align + narrower header cells */
+#executive-summary .data-table thead th:nth-child(2),
+#executive-summary .data-table thead th:nth-child(3),
+#executive-summary .data-table thead th:nth-child(4),
+#executive-summary .data-table tbody td:nth-child(2),
+#executive-summary .data-table tbody td:nth-child(3),
+#executive-summary .data-table tbody td:nth-child(4) {
+  text-align: right;
+}
+.table-wrap.compact .data-table th,
+.table-wrap.compact .data-table td {
+  padding: 9px 10px;
+}
+
+/* 6) Subtle section caps to separate blocks */
+#executive-summary .exec-columns { margin-bottom: 12px; }
+#executive-summary .exec-full { margin-top: 4px; }
+
+/* 7) Gentle spotlight around the executive card */
+.project-card.executive::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 18px;
+  pointer-events: none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.02), 0 30px 80px rgba(0,0,0,.35) inset;
+}
